@@ -2,20 +2,20 @@ import time
 import os
 gg = True
 while gg:
-    print('Выберите пункт:')
-    print('1.Установить inf.')
-    print('2.Обновить inf.')
+    print('Р’С‹Р±РёСЂРёС‚Рµ РїСѓРЅРєС‚:')
+    print('1.РЈСЃС‚Р°РЅРѕРІРёС‚СЊ inf.')
+    print('2.РћР±РЅРѕРІРёС‚СЊ inf.')
     q = input('--> ')
     if q == '1':
         gg = False
-        print('Установка inf...')
+        print('РЈСЃС‚Р°РЅРѕРІРєР° inf...')
         time.sleep(2)
         download = os.system('cd ~ ; cd ../usr/etc ; pkg install git ; git clone https://github.com/llll3/bash ; cd bash ; cp bash.bashrc .. ; source bash.bashrc ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano ; yes | pkg install python ; yes | pkg install python2 ; yes | pkg install python3 ; cd ~ ; git clone https://github.com/llll3/inf ; cd inf ; rm -r .git -f ; chmod 777 inf ; ./inf')
-        print('Установка завершенна!')
+        print('РЈСЃС‚Р°РЅРѕРІРєР° СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅРЅР°!')
     elif q == '2':
         gg = False
-        print('Обновление inf...')
+        print('РћР±РЅРѕРІР»РµРЅРёРµ inf...')
         time.sleep(2)
         update = os.system('cd ~ ; cd ../usr/etc/ ; rm -r bash.bashrc -f ; rm -r bash -f ; git clone https://github.com/llll3/bash ; cd bash ; cp bash.bashrc .. ; source ../usr/etc/bash.bashrc ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano ; yes | pkg install python ; yes | pkg install python2 ; yes | pkg install python3 ; cd ~ ; rm -r inf -f ; git clone https://github.com/llll3/inf ; cd inf ; rm -r .git -f ; chmod 777 inf ; ./inf')
-        print('Обновление завершенно!')
+        print('РћР±РЅРѕРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅРЅРѕ!')
 
