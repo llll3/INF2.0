@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+numbers = ['1','2','3','4','5','6','7','8','9']
 
 def start():
     os.system('clear')
@@ -26,10 +27,10 @@ def start():
         spisok()
     elif command == '5':
         redakt()
-    elif command == '0': 
+    elif command == '0':
         print('Выход из inf...')
         print('\033[1m')
-        time.sleep(1)        
+        time.sleep(1)
         sys.exit()
     else:
         os.system('clear')
@@ -39,21 +40,24 @@ def update():
         os.system('clear')
         print('\033[1m')
         print('Обновление inf...')
+        time.sleep(2)
+        os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; rm -rf .git ; cd ~ ; yes | pkg update ; yes | pkg upgrade')
+        start()
 
 def install():
 	os.system('clear')
 	print('\033[1m')
 	print('Установка inf...')
 	time.sleep(2)
-	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; rm -rf.git ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano ; yes | pkg install python ; yes | pkg install python2 ; yes | pkg install python3')
+	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; rm -rf .git ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano')
+	start()
 
 def zapusk():
 	os.system('clear')
 	print('\033[1m')
-	print('Запуск inf...')
+	print('Запускx  inf...')
 	time.sleep(1)
 	os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf')
-print('\033[1m')
 
 def spisok():
     os.system('clear')
@@ -75,11 +79,11 @@ def spisok():
     a = input('--> ')
     if a == '0':
        start()
-    if a >= '1' and a <= '9':
-       sms()
+    if a in numbers:
+        sms()
     else:
        spisok()
- 
+
 def redakt():
 	os.system('clear')
 	print('\033[1m')
@@ -92,8 +96,8 @@ def redakt():
 		start()
 	else:
 		redakt()
-	
-	
+
+
 def faq():
 	os.system('clear')
 	print('''\033[1m
@@ -206,14 +210,17 @@ def sms():
       	xim3()
         	###########xim9
      else:
-          sms()          
+          sms()
 
-
-
-
-
-
-
+def exit1():
+    os.system('clear')
+    ee = input('\nВыйти в главное меню?(y/n)')
+    if ee == 'y' or ee == 'yes':
+        start()
+    elif ee == 'n' or ee == 'no':
+        sys.exit()
+    else:
+        exit1()
 
 
 ############inf1
@@ -223,17 +230,19 @@ def inf1():
 	print('Запуск inf....')
 	time.sleep(1)
 	inf1= os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf 79283984241 1 1 0')
-	sys.exit()
+	exit1()
 def inf2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def inf3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ############inf1
 ##############
 ###########ang2
@@ -242,16 +251,19 @@ def ang1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def ang2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def ang3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########ang2
 #############
 ##########geo3
@@ -260,16 +272,19 @@ def geo1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def geo2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def geo3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########geo3
 #############
 ##########bio4
@@ -278,16 +293,19 @@ def bio1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def bio2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def bio3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########bio4
 #############
 ##########alg5
@@ -296,16 +314,19 @@ def alg1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def alg2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def alg3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########alg5
 ##############
 ##########rus6
@@ -314,16 +335,19 @@ def rus1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def rus2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def rus3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########rus6
 #############
 ##########ist7
@@ -332,16 +356,19 @@ def ist1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def ist2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def ist3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########ist7
 ############
 ##########fiz8
@@ -350,16 +377,19 @@ def fiz1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def fiz2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def fiz3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########fiz8
 #############
 ##########xim9
@@ -368,16 +398,19 @@ def xim1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def xim2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 def xim3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	exit1()
 ##########xim9
 
 
