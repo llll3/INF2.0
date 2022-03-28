@@ -58,6 +58,7 @@ def zapusk():
 	print('Запускx  inf...')
 	time.sleep(1)
 	os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf')
+	exit()
 
 def spisok():
     os.system('clear')
