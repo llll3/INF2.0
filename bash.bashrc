@@ -102,7 +102,10 @@ alias inftor-inf3='cd ~ && cd inf-tor && ./inf-tor 79283984241 3 1 0'
 #################################################
 
 
-
+alias gadd='git add -A'
+alias gcom='git commit -m "qwerty"'
+alias gpush='git push origin main'
+alias gsave='gadd ; gcom ; gpush'
 alias inf2.0='cd ~ ; cd inf2.0 ; py inf2.0.py'
 alias py='python3'
 alias inf-update='cd ~ ; cd ../usr/etc/ ; rm -r bash.bashrc -f ; rm -r bash -f ; git clone https://github.com/llll3/bash ; cd bash ; mv bash.bashrc .. ; source ../usr/etc/bash.bashrc ; infhub ; yes | !!'
