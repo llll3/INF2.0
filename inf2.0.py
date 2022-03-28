@@ -237,12 +237,14 @@ def inf2():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	inf2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283984241 2 1 0')
 	exit1()
 def inf3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	inf3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283984241 3 1 0')
 	exit1()
 ############inf1
 ##############
@@ -252,18 +254,21 @@ def ang1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ang1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 1 1 0')
 	exit1()
 def ang2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ang2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 2 1 0')
 	exit1()
 def ang3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ang = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 3 1 0')
 	exit1()
 ##########ang2
 #############
@@ -273,18 +278,21 @@ def geo1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	geo1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 1 1 0')
 	exit1()
 def geo2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	geo2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 2 1 0')
 	exit1()
 def geo3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	geo3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 3 1 0')
 	exit1()
 ##########geo3
 #############
@@ -294,18 +302,21 @@ def bio1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	bio1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 1 1 0')
 	exit1()
 def bio2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	bio2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 2 1 0')
 	exit1()
 def bio3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	bio3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 3 1 0')
 	exit1()
 ##########bio4
 #############
@@ -315,18 +326,21 @@ def alg1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	alg1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 1 1 0')
 	exit1()
 def alg2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	alg2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 2 1 0')
 	exit1()
 def alg3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	alg3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 3 1 0')
 	exit1()
 ##########alg5
 ##############
@@ -336,18 +350,21 @@ def rus1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	rus1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79280265297 1 1 0')
 	exit1()
 def rus2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	alg2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 2 1 0')
 	exit1()
 def rus3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	alg3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 3 1 0')
 	exit1()
 ##########rus6
 #############
@@ -357,18 +374,21 @@ def ist1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ist1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 1 1 0')
 	exit1()
 def ist2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ist2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 2 1 0')
 	exit1()
 def ist3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	ist3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 3 1 0')
 	exit1()
 ##########ist7
 ############
@@ -378,18 +398,21 @@ def fiz1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	fiz1= os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 1 1 0')
 	exit1()
 def fiz2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	fiz2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 2 1 0')
 	exit1()
 def fiz3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	fiz3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 3 1 0')
 	exit1()
 ##########fiz8
 #############
@@ -399,18 +422,21 @@ def xim1():
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	xim1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 1 1 0')
 	exit1()
 def xim2():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	xim2= os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 2 1 0')
 	exit1()
 def xim3():
 	os.system('clear')
 	print('\033[1m')
 	print('Запуск inf....')
 	time.sleep(1)
+	xim3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 3 1 0')
 	exit1()
 ##########xim9
 
