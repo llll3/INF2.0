@@ -55,10 +55,10 @@ def install():
 def zapusk():
 	os.system('clear')
 	print('\033[1m')
-	print('Запускx  inf...')
+	print('Запуск inf...')
 	time.sleep(1)
 	os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf')
-	exit()
+	exit1()
 
 def spisok():
     os.system('clear')
