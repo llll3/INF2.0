@@ -40,6 +40,8 @@ def update():
         print('\033[1m\033[32mОбновление inf...\033[m')
         time.sleep(2)
         os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade')
+        print('\033[1m\033[32mОбновление завершенно!\033[m')
+        time.sleep(2)
         start()
 
 def install():
@@ -47,6 +49,8 @@ def install():
 	print('\033[1m\033[32mУстановка inf...\033[m')
 	time.sleep(2)
 	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano')
+	print('\033[1m\033[32mУстановка завершенна!\033[m')
+	time.sleep(1)
 	start()
 
 def zapusk():
@@ -211,7 +215,7 @@ def sms():
 
 def exit1():
     os.system('clear')
-    ee = input('\033[1m\nВыйти в главное меню?(\033[32myes\033[m\033[1m/\033[31mno\033[m\033[1m)')
+    ee = input('\033[1m\nВыйти в главное меню?(\033[32myes\033[m\033[1m/\033[31mno\033[m\033[1m): ')
     if ee == 'y' or ee == 'yes':
         start()
     elif ee == 'n' or ee == 'no':
@@ -229,7 +233,7 @@ def inf1():
 	exit1()
 def inf2():
 	os.system('clear')
-        print('\033[1m\033[32mЗапуск inf....\033[m')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
 	time.sleep(1)
 	inf2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283984241 2 1 0')
 	exit1()
