@@ -41,7 +41,7 @@ def update():
         print('\033[1m')
         print('Обновление inf...')
         time.sleep(2)
-        os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; rm -rf .git ; cd ~ ; yes | pkg update ; yes | pkg upgrade')
+        os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade')
         start()
 
 def install():
@@ -49,7 +49,7 @@ def install():
 	print('\033[1m')
 	print('Установка inf...')
 	time.sleep(2)
-	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; rm -rf .git ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano')
+	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano')
 	start()
 
 def zapusk():
