@@ -2,20 +2,25 @@ import os
 import sys
 import time
 numbers = ['1','2','3','4','5','6','7','8','9']
-
+zel = '\033[32m'
+kras = '\033[31m'
+jir = '\033[1m'
+kon = '\033[m'
+fio = '\033[35m'
+kjir = kon + jir
 def start():
     os.system('clear')
-    print('''\033[1m
-══════════════════════╗
-[&] Версия inf 2.0    ║
-══════════════════════╣
-[0] Выход             ║
-[1] Обновить          ║
-[2] Установить        ║
-[3] Ручной запуск     ║
-[4] Список контактов  ║
-[5] Настройка запуска ║
-══════════════════════╝\033[m''')
+    print(f'''{jir}
+{kras}══════════════════════╗{kjir}
+[&] Версия {fio}inf{kjir} [2.0]  {kras}║{kjir}
+{kras}══════════════════════╣{kjir}
+[0] Выход             {kras}║{kjir}
+[1] Обновить          {kras}║{kjir}
+[2] Установить        {kras}║{kjir}
+[3] Ручной запуск     {kras}║{kjir}
+[4] Список контактов  {kras}║{kjir}
+[5] Настройка запуска {kras}║{kjir}
+{kras}══════════════════════╝{kon}''')
     command = input('--> ')
     if command == '1':
         update()
@@ -28,7 +33,7 @@ def start():
     elif command == '5':
         redakt()
     elif command == '0':
-        print('\033[1m\033[31mВыход из inf...\033[m')
+        print('{kras}Выход из inf...{kjir}')
         time.sleep(1)
         sys.exit()
     else:
@@ -84,20 +89,6 @@ def spisok():
         sms()
     else:
        spisok()
-
-def redakt():
-	os.system('clear')
-	print('\033[1m')
-	print('[&]Меню редактирования контактов\n')
-	print('[&]Выберите контакт:')
-	print('[0] Назад')
-	print('[1] {name}')
-	kon = input('--> ')
-	if kon == '0':
-		start()
-	else:
-		redakt()
-
 
 def faq():
 	os.system('clear')
