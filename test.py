@@ -1,4 +1,5 @@
 import time, sys, os, subprocess
+hio = True
 list = str(list(range(1, 10)))
 f = "open('numbers.txt','r')"
 def glav():
@@ -12,7 +13,7 @@ def glav():
         spi()
     elif asa == '2':
         add1()
-    elif asa == '':
+    elif asa == '3':
         delet()
     elif asa == '4':
         Line()
@@ -22,8 +23,7 @@ def add1():
             for n, line in enumerate(f1, 1):
                 line = line.rstrip('\n')
                 print(f'[{n}]: {line}')
-            else:
-               jjj()
+        jjj()
 def jjj():
       with open('numbers.txt','r+') as f,  open('name.txt', 'r+') as f1:
            s = input('Цисло')
@@ -36,10 +36,9 @@ def jjj():
            for line in f1:
                if x == h: #строка
                   nomer = line.split()[0] #слово в строке
-                  old_data = 'f1.read()'
-                  new_data = old_data.replace('Vasya', 'Kkkkkk')#.format(nomer, hh)
-                  f1.write(new_data)
-               x += 1
+               else:
+                  glav()
+           x += 1
 def spi():
     with open('numbers.txt','r') as ff1, open('name.txt', 'r') as ff2:
         for n, line in enumerate(ff2, 1):
@@ -134,4 +133,8 @@ def Line():
   ReplaceByThis = input("Новый номер ")
   result = Line2(File, FindThis2, ReplaceByThis)
   glav()
-glav()
+
+
+
+if hio == True:
+    glav()

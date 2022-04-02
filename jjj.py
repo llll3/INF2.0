@@ -3,10 +3,10 @@ list = str(list(range(1, 10)))
 y = 0
 def spi1():
     with open('numbers.txt','r') as ff1, open('name.txt', 'r') as ff2:
-        for line, in enumerate(ff2, 1)
+        for n, line, in enumerate(ff2, 1):
                line = line.rstrip('\n')
-               linee = linee.strip('\n')
-               print(f'[{n}]: {line} {linee}')
+#               linee = linee.strip('\n')
+               print(f'[{n}]: {line}')
         global jek
         jek = input('Строка: ')
         if jek in list:
