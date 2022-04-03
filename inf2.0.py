@@ -1,7 +1,8 @@
 import os
 import sys
 import time
-numbers = ['1','2','3','4','5','6','7','8','9']
+numbers = str(list(range(1, 10)))
+print(numbers)
 zel = '\033[32m'
 kras = '\033[31m'
 jir = '\033[1m'
@@ -33,7 +34,7 @@ def start():
     elif command == '5':
         redakt()
     elif command == '0':
-        print('{kras}Выход из inf...{kjir}')
+        print(f'{kras}Выход из inf...{kjir}')
         time.sleep(1)
         sys.exit()
     else:

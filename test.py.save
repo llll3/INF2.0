@@ -1,6 +1,6 @@
 import time, sys, os, subprocess
 hio = True
-list = str(list(range(1, 20)))
+list = str(list(range(1, 10)))
 f = "open('numbers.txt','r')"
 def glav():
     print('''
@@ -10,62 +10,67 @@ def glav():
 4.zamenit''')
     asa = input('aaaa: ')
     if asa == '1':
-        listt()
+        spi()
     elif asa == '2':
         add1()
     elif asa == '3':
-        delete1()
+        delet()
     elif asa == '4':
         Line()
 
-def listt():
- nanu()
- with open('nanu.txt', 'r') as f3:
-  for n, line in enumerate(f3, 1):
-   line = line.rstrip('\n')
-   print(f'[{n}] {line}')
-
-def nanu():
-   with open('name.txt', 'r') as f1, open('numbers.txt', 'r') as f2, open('nanu.txt', 'w') as f3:
-       for i, j in zip(f1.readlines(), f2.readlines()):
-           f3.write(f'{i.strip()}: {j}')
-def delete1():
-  listt()
-  gg = input('Введите строку: ')
-  if gg in list:
-    Linee()
-
 def add1():
-        with open('numbers.txt','a') as f,  open('name.txt', 'a') as f1:
-            xx = input('Введите имя: ')
-            f1.write(f'{xx}')
-            xxx = input('Введите номер: ')
-            f.write(f'{xxx}')
+        with open('numbers.txt','r') as f,  open('name.txt', 'r') as f1:
+            for n, line in enumerate(f1, 1):
+                line = line.rstrip('\n')
+                print(f'[{n}]: {line}')
+        jjj()
+def jjj():
+      with open('numbers.txt','r+') as f,  open('name.txt', 'r+') as f1:
+           s = input('Цисло')
+           sa = input('Введите новое имя')
+           saa = input ('Введите новый номер')
+           hh = sa
+           h = int(s)
+           h -= 1
+           x = 0
+           for line in f1:
+               if x == h: #строка
+                  nomer = line.split()[0] #слово в строке
+               else:
+                  glav()
+           x += 1
+def spi():
+    with open('numbers.txt','r') as ff1, open('name.txt', 'r') as ff2:
+#        for n, line in enumerate(ff2, 1):
+        for n, line in enumerate(ff2, 1):
+                 line = line.rstrip('\n')
+                 linee = linee.strip('\n')
+                 print(f'[{n}]: {line} {linee}')
 
 def spi1():
- global jek
- jek = input('Строка: ')
- if jek in list:
-  holm1()
-
-def holm1():
- listt()
- jek = input('Строка: ')
- if jek in list:
-  ff1 =  open("name.txt", "r")
-  h = int(jek)
-  h -= 1
-  x = 0
-  for line in ff1:
-   if x == h: #строка
-    global nomer1
-    nomer1 = line.split()[0] #слово в строке
-   x += 1
-
-def spi2():
-        nanu()
+    with open('numbers.txt','r') as ff1, open('name.txt', 'r') as ff2:
+        for n, line in enumerate(ff2, 1):
+            line = line.rstrip('\n')
+            print(f'[{n}]: {line}')
         global jek
         jek = input('Строка: ')
+        if jek in list:
+           holm1()
+def holm1():
+   ff1 =  open("name.txt", "r")
+   h = int(jek)
+   h -= 1
+   x = 0
+   for line in ff1:
+      if x == h: #строка
+           global nomer1
+           nomer1 = line.split()[0] #слово в строке
+      x += 1
+def spi2():
+    with open('numbers.txt','r') as ff1, open('name.txt', 'r') as ff2:
+        for n, line in enumerate(ff1, 1):
+            line = line.rstrip('\n')
+            print(f'[{n}]: {line}')
         if jek in list:
            holm2()
 def holm2():
@@ -117,7 +122,7 @@ def Line2(File, FindThis2, ReplaceByThis):
         os.system("mv %s %s" % (TemporaryFile, File)) # переименовываем временный файл
 
 def Line():
-  holm1()
+  spi1()
   ff22 = 'numbers.txt'
   ff11 = 'name.txt'
   File = ff11
@@ -131,22 +136,7 @@ def Line():
   result = Line2(File, FindThis2, ReplaceByThis)
   glav()
 
-def Linee():
-  spi1()
-  ff22 = 'numbers.txt'
-  ff11 = 'name.txt'
-  File = ff11
-  FindThis1 = nomer1 #input("Старое имя: ")
-  ReplaceByThis = ''
-  result = Line1(File, FindThis1, ReplaceByThis)
-  spi2()
-  File = ff22
-  FindThis2 = nomer2 #input("Старый номер: ")
-  ReplaceByThis = ''
-  result = Line2(File, FindThis2, ReplaceByThis)
-  glav()
 
 
 if hio == True:
     glav()
-
