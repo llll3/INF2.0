@@ -89,14 +89,9 @@ def add1():
             xxx = input('Введите номер: ')
             f.write(f'{xxx}')
 
-def spi1():
- global jek
- jek = input('Строка: ')
- if jek in list:
-  holm1()
-
 def holm1():
  listt()
+ global jek
  jek = input('Строка: ')
  if jek in list:
   ff1 =  open("name.txt", "r")
@@ -109,12 +104,6 @@ def holm1():
     nomer1 = line.split()[0] #слово в строке
    x += 1
 
-def spi2():
-        nanu()
-        global jek
-        jek = input('Строка: ')
-        if jek in list:
-           holm2()
 def holm2():
    ff2 =  open("numbers.txt", "r")
    h = int(jek)
@@ -171,28 +160,12 @@ def Line():
   FindThis1 = nomer1 #input("Старое имя: ")
   ReplaceByThis = input("Новое имя: ")
   result = Line1(File, FindThis1, ReplaceByThis)
-  spi2()
+  holm2()
   File = ff22
   FindThis2 = nomer2 #input("Старый номер: ")
   ReplaceByThis = input("Новый номер ")
   result = Line2(File, FindThis2, ReplaceByThis)
   glav()
-
-def Linee():
-  spi1()
-  ff22 = 'numbers.txt'
-  ff11 = 'name.txt'
-  File = ff11
-  FindThis1 = nomer1 #input("Старое имя: ")
-  ReplaceByThis = ''
-  result = Line1(File, FindThis1, ReplaceByThis)
-  spi2()
-  File = ff22
-  FindThis2 = nomer2 #input("Старый номер: ")
-  ReplaceByThis = ''
-  result = Line2(File, FindThis2, ReplaceByThis)
-  glav()
-
 
 if hio == True:
     glav()
