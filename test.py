@@ -1,4 +1,4 @@
-import time, sys, os, subprocess
+import time, sys, os, subprocess, re
 hio = True
 list = str(list(range(1, 20)))
 f = "open('numbers.txt','r')"
@@ -30,11 +30,58 @@ def nanu():
        for i, j in zip(f1.readlines(), f2.readlines()):
            f3.write(f'{i.strip()}: {j}')
 def delete1():
-  listt()
-  gg = input('Введите строку: ')
-  if gg in list:
-    Linee()
+ listt()
+ stroka1()
+ gg = jj
+ if gg in list:
+  with open('name.txt') as f1:
+      lines1 = f1.readlines()
 
+  str1 = nomer1
+  pattern1 = re.compile(re.escape(str1))
+  with open('name.txt', 'w') as f1:
+    for line in lines1:
+        result1 = pattern1.search(line)
+        if result1 is None:
+            f1.write(line)
+            delete2()
+def delete2():
+  with  open ('numbers.txt') as f2:
+      lines2 = f2.readlines()
+
+  str2 = nomer2
+  pattern2 = re.compile(re.escape(str2))
+  with  open('numbers.txt', 'w') as f2:
+    for line in lines2:
+        result2 = pattern2.search(line)
+        if result2 is None:
+            f2.write(line)
+
+def stroka1():
+  ff1 = open("name.txt", "r")
+  global jj
+  jj = input('Строка: ')
+  h = int(jj)
+  h -= 1
+  x = 0
+  for line in ff1:
+   if x == h: #строка
+    global nomer1
+    nomer1 = line.split()[0] #слово в строке
+    print(nomer1)
+    stroka2()
+   x += 1
+def stroka2():
+  ff2 = open("numbers.txt", "r")
+  h = int(jj)
+  h -= 1
+  x = 0
+  for line in ff2:
+   if x == h: #строка
+    global nomer2
+    nomer2 = line.split()[0] #слово в строке
+    print(nomer2)
+   x += 1
 def add1():
         with open('numbers.txt','a') as f,  open('name.txt', 'a') as f1:
             xx = input('Введите имя: ')
