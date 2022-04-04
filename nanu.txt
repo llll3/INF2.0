@@ -1,5 +1,5 @@
+[Names]: [Numbers]
 Aleksey: 7988111111
 Ruslan: 7988222222
-Kirill: 7988333333
-: 
-: 
+aaaaaaaa: 1111111
+aaaaaaaaaa: 111111111
