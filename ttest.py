@@ -33,28 +33,16 @@ def delete1():
  stroka2()
  hhh = str(hh)
  if hhh in list:
-  with open('name.txt') as f1:
+  with open('name.txt') as f1, open('numbers.txt') as ff1:
       lines1 = f1.readlines() # список текста в линию
-  strr1 = str(nomer1)
-  str1 = strr1
-  pattern1 = re.compile(re.escape(str1)) # re.complite()
-  with open('name.txt', 'r+') as ff1: # открытие файла
-    for line in lines1: # для line это lines1
-        result1 = pattern1.search(line) # None
-        if result1 is None: # None?
-           ff1.write(line) # [Name]
-        delete2()
-def delete2():
-  with open('numbers.txt') as f2:
-      lines2 = f2.readlines()
-  strr2 = str(nomer2)
-  str2 = strr2
-  pattern2 = re.compile(re.escape(str2))
-  with  open('numbers.txt', 'r+') as ff2:
-    for line in lines2:
-        result2 = pattern2.search(line)
-        if result2 is None:
-            ff2.write(line)
+      lines2 = ff1.readlines() # [(1, 2, 3, 4, 5)]
+  str1 = nomer1 # строка которую удалить
+  str2 = nomer2 # имя и номер
+  del lines1[hh]
+  del lines2[hh]
+  with open('name.txt', 'w') as f1, open('numbers.txt', 'w') as ff1: # открытие файла
+        f1.writelines(lines1)
+        ff1.writelines(lines2)
         print(f'Удaленно: {nomer1}')
         print(f'Удаленно: {nomer2}')
         glav()

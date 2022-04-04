@@ -19,30 +19,35 @@ def Delete(File1, File2):
   jek = input('Строка: ')
   if jek in list:
     with open(File1, 'r') as fff1, open(File2, 'r') as fff2:
-      h = int(jek) ; h -= 1 ; h = h ; x = 0
+      h = int(jek) ; h -= 1 ; h = h ; x = 0 ; xx = 0
       for line1 in fff1:
-        for line2 in fff2:
           if x == h: #строка
-            global nomer1 ; global nomer2
-            nomer1 = line1.split()[0] ; nomer2 = line2.split()[0] #слово в строке
+            global nomer1
+            nomer1 = line1.split()[0]
           x += 1
+      for line2 in fff2:
+          if xx == h: #строка
+            global nomer2
+            nomer2 = line2.split()[0] #слово в строке
+          xx += 1
 
-def Delete2(File1, File2, FindThis1, FindThis2):
+def Delete2(File1, File2, FindThis1, FindThis2, new1, new2):
         TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
         os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
         with open(File1, 'r') as f1, open(TemporaryFile1, 'w') as f2, open(File2, 'r') as ff1, open(TemporaryFile2, 'w') as ff2:
-            lines1 = f1.readlines() ; lines2 = ff1.readlines()
+            lines1 = f1.readlines()
+            lines2 = ff1.readlines()
             for line1 in lines1:
                 line1 = line1.strip()
                 if line1 == FindThis1:
-                    f2.write('') # меняем строку
+                    f2.write(f'{new1}') # меняем строку
                 else:
                     f2.write(line1 + '\n') # оставляем прежнюю
 
             for line2 in lines2:
                 line2 = line2.strip()
                 if line2 == FindThis2:
-                    ff2.write('') # меняем строку
+                    ff2.write(f'{new2}') # меняем строку
                 else:
                     ff2.write(line2 + '\n') # оставляем прежнюю
 
@@ -58,6 +63,9 @@ Delete(File1, File2)
 FindThis1 = nomer1
 FindThis2 = nomer2
 
-result = Delete2(File1, File2, FindThis1, FindThis2)
+new1 = input('Введите новое имя: ')
+new2 = input('Введите новый номер: ')
+
+result = Delete2(File1, File2, FindThis1, FindThis2, new1, new2)
 
 listt()
