@@ -4,13 +4,13 @@ list2 = str(list(range(1, 5)))
 ff = "('clear')"
 def Z():
  os.system(ff)
- print('''
-[&] ?
+ print('''[&] ?
 [0] Выход
 [1] список
 [2] добавить
 [3] удалить
 [4] редактировать''')
+ global asa
  asa = input('-->: ')
  if asa == '0':
   sys.exit()
@@ -27,14 +27,28 @@ def Z():
 
 def z1():
  z1_2()
- print(f'''
-[&] список
-[0] Назад''')
+ bb = 0
+ if asa == '1':
+  os.system(ff)
+  print('[&] Список: ')
+  print('[0] Назад')
+ if asa == '3':
+  print('[&] Удалить: ')
+ if asa == '4':
+  print('[&] Изменить')
+
  with open('nanu.txt') as f3:
   for n, line in enumerate(f3, 1):
    kk = '[&] Список:\n[0] Назад'
    line1 = line.rstrip('\n')
    print(f'[{n}] {line1}')
+ if asa == '1':
+  cc = input('--> ')
+  if cc == '0':
+   Z()
+ else:
+   os.system(ff)
+   z1()
 
 def z1_2():
  File1 = 'names.txt'
@@ -51,6 +65,7 @@ def z1_2():
 
 def z3():
  os.system(ff)
+ z1()
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  z3z4_2(File1, File2)
@@ -68,10 +83,14 @@ def z3():
 
 def z2():
  os.system(ff)
+ print('[&] Добавить')
+ print('[0] Назад')
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  with open(File1,'a') as f1,  open(File2, 'a') as ff1:
   xx = input('Введите имя: ')
+  if xx == '0':
+    Z()
   f1.write(f'\n{xx}')
   xxx = input('Введите номер: ')
   ff1.write(f'\n{xxx}')
