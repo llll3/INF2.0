@@ -1,15 +1,25 @@
 import time, sys, os, subprocess, re
-list1 = str(list(range(2, 31)))
+list1 = str(list(range(2, 51)))
+zel = '\033[32m'
+kras = '\033[31m'
+jir = '\033[1m'
+kon = '\033[m'
+fio = '\033[35m'
+kjir = kon + jir
 list2 = str(list(range(1, 5)))
 ff = "('clear')"
+def test():
+ with open('nanu.txt') as f:
+  jj = len(f.readlines())
+  print(jj)
 def Z():
  os.system(ff)
- print('''[&] ?
+ print(f'''{jir}[&] ?
 [0] Выход
 [1] список
 [2] добавить
 [3] удалить
-[4] редактировать''')
+[4] редактировать{kjir}''')
  global asa
  asa = input('-->: ')
  if asa == '0':
@@ -26,8 +36,10 @@ def Z():
   Z()
 
 def z1():
+ j = jir
  z1_2()
  x = 0
+ test()
  if asa == '1':
   os.system(ff)
   print('[&] Список: ')
@@ -46,9 +58,9 @@ def z1():
   cc = input('--> ')
   if cc == '0':
    Z()
- else:
-  os.system(ff)
-  z1()
+  else:
+   os.system(ff)
+   z1()
 
 def z1_2():
  File1 = 'names.txt'
@@ -62,53 +74,65 @@ def z1_2():
  path3 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File3)
  os.remove(path3) # удаляем основной файл
  os.system("mv %s %s" % (TemporaryFile3, File3))
-
+ jj = kjir
 def z3():
  os.system(ff)
  z1()
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  z3z4_2(File1, File2)
- hh = int(jek)
+ hh = jek
  hh -= 1
- if str(hh) in list1:
+ hh = hh
+ if hh in list1:
   with open(File1) as f1, open(File2) as ff1:
    lines1 = f1.readlines() # список текста в линию
    lines2 = ff1.readlines() # [(1, 2, 3, 4, 5)]
+   g1 = lines1[hh]
+   g2 = lines2[hh]
+   print(f'Удалено имя: {g1}')
+   print(f'Удалён номер: {g2}')
    del lines1[hh]
    del lines2[hh]
   with open(File1, 'w') as f1, open(File2, 'w') as ff1: # открытие файла
    f1.writelines(lines1)
    ff1.writelines(lines2)
+ else: z3()
 
 def z2():
  os.system(ff)
  print('[&] Добавить')
  print('[0] Назад')
+ print('[1] Продолжить')
  File1 = 'names.txt'
  File2 = 'numbers.txt'
- with open(File1,'a') as f1,  open(File2, 'a') as ff1:
-  xx = input('Введите имя: ')
-  if xx == '0':
-    Z()
-  f1.write(f'\n{xx}')
-  xxx = input('Введите номер: ')
-  ff1.write(f'\n{xxx}')
-  print(f'Добавлено имя: {xx}')
-  print(f'Добавлен номер: {xxx}')
+ xx = input('--> ')
+ if xx == '0': Z()
+ if xx == '1':
+  with open(File1,'a') as f1,  open(File2, 'a') as ff1:
+   xx = input('Введите имя: ')
+   f1.write(f'\n{xx}')
+   xxx = input('Введите номер: ')
+   ff1.write(f'\n{xxx}')
+   os.system(ff)
+   print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
+   print(f'{zel}Добавлен номер: {xxx}{kon}')
+   time.sleep(2)
+   z2()
+ else: z2()
 
 def z3z4_2(File1, File2):
  global jek
- jek = input('Введите п.номер: ')
- if jek in list1:
+ jek = str(input('Введите поряд.номер: '))
+ if jek == list1:
   with open(File1) as fff1, open(File2) as fff2:
-   h = int(jek)
+   h = jek
    h -= 1
    h = h
    x = 0
    xx = 0
    for line1 in fff1:
-    if x == h: #строка
+    if x == str(f'{h}'): #строка
      global nomer1
      nomer1 = line1.split()[0]
     x += 1
@@ -117,7 +141,7 @@ def z3z4_2(File1, File2):
      global nomer2
      nomer2 = line2.split()[0] #слово в строке
     xx += 1
-
+ else: z3()
 def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
  os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
