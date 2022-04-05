@@ -26,10 +26,9 @@ def Z():
   Z()
 
 def z1():
- os.system(ff)
  z1_2()
- print('''
-[&] Список
+ print(f'''
+[&] список
 [0] Назад''')
  with open('nanu.txt') as f3:
   for n, line in enumerate(f3, 1):
@@ -80,7 +79,6 @@ def z2():
   print(f'Добавлен номер: {xxx}')
 
 def z3z4_2(File1, File2):
- z1()
  global jek
  jek = input('Введите п.номер: ')
  if jek in list1:
@@ -102,7 +100,6 @@ def z3z4_2(File1, File2):
     xx += 1
 
 def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
- os.system(ff)
  TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
  os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
 
@@ -131,6 +128,15 @@ def z4():
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  z3z4_2(File1, File2)
+ z1_2()
+ print(f'''
+[&] Редактирование:
+[0] Назад''')
+ with open('nanu.txt') as f3:
+  for n, line in enumerate(f3, 1):
+   kk = '[&] Список:\n[0] Назад'
+   line1 = line.rstrip('\n')
+   print(f'[{n}] {line1}')
  FindThis1 = nomer1
  FindThis2 = nomer2
  new1 = input('Введите новое имя: ')
