@@ -27,7 +27,7 @@ def Z():
 
 def z1():
  z1_2()
- bb = 0
+ x = 0
  if asa == '1':
   os.system(ff)
   print('[&] Список: ')
@@ -47,8 +47,8 @@ def z1():
   if cc == '0':
    Z()
  else:
-   os.system(ff)
-   z1()
+  os.system(ff)
+  z1()
 
 def z1_2():
  File1 = 'names.txt'
