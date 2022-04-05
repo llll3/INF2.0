@@ -36,13 +36,6 @@ def z1():
    kk = '[&] Список:\n[0] Назад'
    line1 = line.rstrip('\n')
    print(f'[{n}] {line1}')
- xx = input('-->')
- if xx == '0':
-  Z()
- if xx >= '1' and not  xx > '0' :
-  z1()
- else:
-  z1()
 
 def z1_2():
  File1 = 'names.txt'
@@ -89,7 +82,7 @@ def z2():
 def z3z4_2(File1, File2):
  z1()
  global jek
- jek = input('[&] Удаленние:\n[0] Назад\nВведите п.номер: ')
+ jek = input('Введите п.номер: ')
  if jek in list1:
   with open(File1) as fff1, open(File2) as fff2:
    h = int(jek)
@@ -131,6 +124,7 @@ def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  path1 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File1) ; path2 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File2)
  os.remove(path1) ; os.remove(path2) # удаляем основной файл
  os.system("mv %s %s" % (TemporaryFile1, File1)) ; os.system("mv %s %s" % (TemporaryFile2, File2)) # переименовываем временный файл
+ Z()
 
 def z4():
  os.system(ff)
@@ -139,7 +133,7 @@ def z4():
  z3z4_2(File1, File2)
  FindThis1 = nomer1
  FindThis2 = nomer2
- new1 = input('[&] Редактировать:\n[0] Назад\nВведите новое имя: ')
+ new1 = input('Введите новое имя: ')
  new2 = input('Введите новый номер: ')
  result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
 
