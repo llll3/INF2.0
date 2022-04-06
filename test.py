@@ -1,5 +1,4 @@
 import time, sys, os, subprocess, re
-list1 = list(range(1, 51))
 zel = '\033[32m'
 kras = '\033[31m'
 jir = '\033[1m'
@@ -8,11 +7,6 @@ fio = '\033[35m'
 kjir = kon + jir
 list2 = str(list(range(1, 5)))
 ff = "('clear')"
-
-def test():
- with open('nanu.txt') as f:
-  jj = len(f.readlines())
-  print(jj)
 
 def Z():
  os.system(ff)
@@ -23,7 +17,7 @@ def Z():
 [3] удалить
 [4] редактировать{kjir}''')
  global asa
- asa = input('-->: ')
+ asa = input('--> ')
  if asa == '0':
   sys.exit()
  if asa == '1':
@@ -49,6 +43,11 @@ def z1():
   print('[&] Изменить')
 
  with open('nanu.txt') as f3:
+  Num = len(f3.readlines())
+  Num += 1
+  global list1
+  list1 = list(range(1, Num))
+ with open('nanu.txt') as f3:
   for n, line in enumerate(f3, 1):
    kk = '[&] Список:\n[0] Назад'
    line1 = line.rstrip('\n')
@@ -72,6 +71,8 @@ def z1_2():
  os.system("touch %s" % TemporaryFile3) # временный файл
 
  with open(File1, 'r') as f1, open(File2, 'r') as f2, open(TemporaryFile3, 'w') as f4:
+  os.system("mv %s %s" % (File1, 'names.tmp')) ; os.system("mv %s %s" % (File2, 'numbers.tmp')) # переименовываем временный файл
+  os.system("mv %s %s" % ('names.tmp', File1)) ; os.system("mv %s %s" % ('numbers.tmp', File2)) # пере
   for i, j in zip(f1.readlines(), f2.readlines()):
    f4.write(f'{i.strip()}: {j}')
 
@@ -91,28 +92,30 @@ def z3():
   z3z4_2(File1, File2)
   hh = int(jek)
   hh -= 1
-  hh = hh
   if hh in list1:
-   with open(File1) as f1, open(File2) as ff1:
-    lines1 = f1.readlines() # список текста в линию
-    lines2 = ff1.readlines() # [(1, 2, 3, 4, 5)]
-    g1 = lines1[hh]
-    g2 = lines2[hh]
+   with open(File1, "r") as f1, open(File2, "r") as ff1, open("tmp1.txt", "w") as f2, open("tmp2.txt", "w") as ff2:
+    for line1 in f1:
+     if line1.strip("\n") != nomer1:
+      f2.write(line1)
+
+    for line2 in ff1:
+     if line2.strip("\n") != nomer2:
+      ff2.write(line2)
+
     os.system(ff)
-    print(f'{zel + jir}Удаленно имя: {g1}\nУдален номер: {g2}{kon}')
+    print(f'{zel + jir}Удаленно имя: {nomer1}\b\nУдален номер: {nomer2}{kon}')
     time.sleep(2)
-    del lines1[hh]
-    del lines2[hh]
-   with open(File1, 'w') as f1, open(File2, 'w') as ff1: # открытие файла
-    f1.writelines(lines1)
-    ff1.writelines(lines2)
+#    os.system("mv %s %s" % (File1, 'names.tmpp')) ; os.system("mv %s %s" % (File2, 'numbers.tmpp')) # переименовываем временный файл
+    os.system("mv %s %s" % ('tmp1.txt', File1)) ; os.system("mv %s %s" % ('tmp2.txt', File2)) # пере
     z3()
   else:
    os.system(ff)
    print(f'{kras + jir}Неверный ввод!{kon}')
    time.sleep(1)
    z3()
-
+# with open(File1) as f1, open(File2) as ff1:
+#   os.rename("File1", "names.txt.mmm") ; os.rename("File2", "numbers.txt.mmm")
+ #  os.rename("names.txt.mmm", "File1") ; os.rename("numbers.txt.mmm", "File2")
 def z2():
  os.system(ff)
  print('[&] Добавить\n[0] Назад\n[1] Продолжить')
@@ -121,6 +124,9 @@ def z2():
  xx = input('--> ')
  if xx == '0': Z()
  if xx == '1':
+  File1 = 'names.txt'
+  File2 = 'numbers.txt'
+  File3 = 'nanu.txt'
   os.system(ff)
   with open(File1,'a') as f1,  open(File2, 'a') as ff1:
    xx = input('Введите имя: ')
@@ -130,13 +136,13 @@ def z2():
    os.system(ff)
    print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
    print(f'{zel}Добавлен номер: {xxx}{kon}')
-   time.sleep(2)
-   z2()
+   time.sleep(4)
  else:
   os.system(ff)
   print(f'{kras + jir}Неверный ввод!{kon}')
   time.sleep(1)
   z2()
+ z2()
 
 def z3z4_2(File1, File2):
  os.system(ff)
@@ -158,7 +164,6 @@ def z3z4_2(File1, File2):
     if xx == h: #строка
      global nomer2
      nomer2 = line2.split()[0] #слово в строке
-     time.sleep(5)
     xx += 1
  else:
   os.system(ff)
@@ -188,7 +193,10 @@ def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  path1 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File1) ; path2 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File2)
  os.remove(path1) ; os.remove(path2) # удаляем основной файл
  os.system("mv %s %s" % (TemporaryFile1, File1)) ; os.system("mv %s %s" % (TemporaryFile2, File2)) # переименовываем временный файл
- Z()
+ os.system(ff)
+ print(f'{zel + jir}Изменено имя: {FindThis1} на {new1}\nИзменён номер: {FindThis2} на {new2}{kon}')
+ time.sleep(4)
+ z4()
 
 def z4():
  os.system(ff)
@@ -203,6 +211,7 @@ def z4():
   z3z4_2(File1, File2)
   FindThis1 = nomer1
   FindThis2 = nomer2
+  os.system(ff)
   new1 = input('Введите новое имя: ')
   new2 = input('Введите новый номер: ')
   result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
