@@ -1,5 +1,5 @@
 import time, sys, os, subprocess, re
-list1 = str(list(range(2, 51)))
+list1 = list(range(1, 51))
 zel = '\033[32m'
 kras = '\033[31m'
 jir = '\033[1m'
@@ -8,10 +8,12 @@ fio = '\033[35m'
 kjir = kon + jir
 list2 = str(list(range(1, 5)))
 ff = "('clear')"
+
 def test():
  with open('nanu.txt') as f:
   jj = len(f.readlines())
   print(jj)
+
 def Z():
  os.system(ff)
  print(f'''{jir}[&] ?
@@ -36,10 +38,8 @@ def Z():
   Z()
 
 def z1():
- j = jir
  z1_2()
  x = 0
- test()
  if asa == '1':
   os.system(ff)
   print('[&] Список: ')
@@ -74,30 +74,37 @@ def z1_2():
  path3 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File3)
  os.remove(path3) # удаляем основной файл
  os.system("mv %s %s" % (TemporaryFile3, File3))
- jj = kjir
+
 def z3():
  os.system(ff)
- z1()
  File1 = 'names.txt'
  File2 = 'numbers.txt'
- z3z4_2(File1, File2)
- hh = jek
- hh -= 1
- hh = hh
- if hh in list1:
-  with open(File1) as f1, open(File2) as ff1:
-   lines1 = f1.readlines() # список текста в линию
-   lines2 = ff1.readlines() # [(1, 2, 3, 4, 5)]
-   g1 = lines1[hh]
-   g2 = lines2[hh]
-   print(f'Удалено имя: {g1}')
-   print(f'Удалён номер: {g2}')
-   del lines1[hh]
-   del lines2[hh]
-  with open(File1, 'w') as f1, open(File2, 'w') as ff1: # открытие файла
-   f1.writelines(lines1)
-   ff1.writelines(lines2)
- else: z3()
+ print('[&] Удалить \n[0] Назад \n[1] Продолжить')
+ tt = input('--> ')
+ if tt == '0':
+  Z()
+ if tt == '1':
+  os.system(ff)
+  z3z4_2(File1, File2)
+  hh = int(jek)
+  hh -= 1
+  hh = hh
+  if hh in list1:
+   with open(File1) as f1, open(File2) as ff1:
+    lines1 = f1.readlines() # список текста в линию
+    lines2 = ff1.readlines() # [(1, 2, 3, 4, 5)]
+    g1 = lines1[hh]
+    g2 = lines2[hh]
+    os.system(ff)
+    print(f'{zel + jir}Удаленно имя: {g1}\nУдален номер: {g2}{kon}')
+    time.sleep(2)
+    del lines1[hh]
+    del lines2[hh]
+   with open(File1, 'w') as f1, open(File2, 'w') as ff1: # открытие файла
+    f1.writelines(lines1)
+    ff1.writelines(lines2)
+    z3()
+  else: z3()
 
 def z2():
  os.system(ff)
@@ -122,13 +129,13 @@ def z2():
  else: z2()
 
 def z3z4_2(File1, File2):
+ z1()
  global jek
- jek = str(input('Введите поряд.номер: '))
- if jek == list1:
+ jek = input('Введите поряд.номер: ')
+ if jek in list1:
   with open(File1) as fff1, open(File2) as fff2:
    h = jek
    h -= 1
-   h = h
    x = 0
    xx = 0
    for line1 in fff1:
@@ -140,8 +147,9 @@ def z3z4_2(File1, File2):
     if xx == h: #строка
      global nomer2
      nomer2 = line2.split()[0] #слово в строке
+     time.sleep(5)
     xx += 1
- else: z3()
+    
 def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
  os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
@@ -168,22 +176,19 @@ def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
 
 def z4():
  os.system(ff)
- File1 = 'names.txt'
- File2 = 'numbers.txt'
- z3z4_2(File1, File2)
- z1_2()
- print(f'''
-[&] Редактирование:
-[0] Назад''')
- with open('nanu.txt') as f3:
-  for n, line in enumerate(f3, 1):
-   kk = '[&] Список:\n[0] Назад'
-   line1 = line.rstrip('\n')
-   print(f'[{n}] {line1}')
- FindThis1 = nomer1
- FindThis2 = nomer2
- new1 = input('Введите новое имя: ')
- new2 = input('Введите новый номер: ')
- result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
+ print('[&] Изменить\n[0] Назад\n[1] Продолжить')
+ kl = input('--> ')
+ if kl == '0':
+  Z()
+ if kl == '1':
+  os.system(ff)
+  File1 = 'names.txt'
+  File2 = 'numbers.txt'
+  z3z4_2(File1, File2)
+  FindThis1 = nomer1
+  FindThis2 = nomer2
+  new1 = input('Введите новое имя: ')
+  new2 = input('Введите новый номер: ')
+  result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
 
 Z()
