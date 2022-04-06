@@ -42,8 +42,7 @@ def z1():
  x = 0
  if asa == '1':
   os.system(ff)
-  print('[&] Список: ')
-  print('[0] Назад')
+  print('[&] Список: \n[0] Назад')
  if asa == '3':
   print('[&] Удалить: ')
  if asa == '4':
@@ -60,17 +59,22 @@ def z1():
    Z()
   else:
    os.system(ff)
+   print(f'{kras + jir}Неверный ввод!{kon}')
+   time.sleep(1)
    z1()
 
 def z1_2():
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  File3 = 'nanu.txt'
+
  TemporaryFile3 = File3 + '.tmpp' # создаём файл
  os.system("touch %s" % TemporaryFile3) # временный файл
+
  with open(File1, 'r') as f1, open(File2, 'r') as f2, open(TemporaryFile3, 'w') as f4:
   for i, j in zip(f1.readlines(), f2.readlines()):
    f4.write(f'{i.strip()}: {j}')
+
  path3 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File3)
  os.remove(path3) # удаляем основной файл
  os.system("mv %s %s" % (TemporaryFile3, File3))
@@ -79,12 +83,11 @@ def z3():
  os.system(ff)
  File1 = 'names.txt'
  File2 = 'numbers.txt'
- print('[&] Удалить \n[0] Назад \n[1] Продолжить')
+ print('[&] Удалить\n[0] Назад\n[1] Продолжить')
  tt = input('--> ')
  if tt == '0':
   Z()
  if tt == '1':
-  os.system(ff)
   z3z4_2(File1, File2)
   hh = int(jek)
   hh -= 1
@@ -104,18 +107,21 @@ def z3():
     f1.writelines(lines1)
     ff1.writelines(lines2)
     z3()
-  else: z3()
+  else:
+   os.system(ff)
+   print(f'{kras + jir}Неверный ввод!{kon}')
+   time.sleep(1)
+   z3()
 
 def z2():
  os.system(ff)
- print('[&] Добавить')
- print('[0] Назад')
- print('[1] Продолжить')
+ print('[&] Добавить\n[0] Назад\n[1] Продолжить')
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  xx = input('--> ')
  if xx == '0': Z()
  if xx == '1':
+  os.system(ff)
   with open(File1,'a') as f1,  open(File2, 'a') as ff1:
    xx = input('Введите имя: ')
    f1.write(f'\n{xx}')
@@ -126,20 +132,25 @@ def z2():
    print(f'{zel}Добавлен номер: {xxx}{kon}')
    time.sleep(2)
    z2()
- else: z2()
+ else:
+  os.system(ff)
+  print(f'{kras + jir}Неверный ввод!{kon}')
+  time.sleep(1)
+  z2()
 
 def z3z4_2(File1, File2):
+ os.system(ff)
  z1()
  global jek
  jek = input('Введите поряд.номер: ')
- if jek in list1:
+ if int(jek) in list1:
   with open(File1) as fff1, open(File2) as fff2:
-   h = jek
+   h = int(jek)
    h -= 1
    x = 0
    xx = 0
    for line1 in fff1:
-    if x == str(f'{h}'): #строка
+    if x == h: #строка
      global nomer1
      nomer1 = line1.split()[0]
     x += 1
@@ -149,7 +160,12 @@ def z3z4_2(File1, File2):
      nomer2 = line2.split()[0] #слово в строке
      time.sleep(5)
     xx += 1
-    
+ else:
+  os.system(ff)
+  print(f'{kras + jir}Неверный ввод!{kon}')
+  time.sleep(1)
+  z3z4_2(File1, File2)
+
 def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
  os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
@@ -190,5 +206,11 @@ def z4():
   new1 = input('Введите новое имя: ')
   new2 = input('Введите новый номер: ')
   result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
+ else:
+  os.system(ff)
+  print(f'{kras + jir}Неверный ввод!{kon}')
+  time.sleep(1)
+  z4()
 
 Z()
+
