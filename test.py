@@ -10,12 +10,16 @@ ff = "('clear')"
 
 def Z():
  os.system(ff)
- print(f'''{jir}[&] ?
-[0] Выход
-[1] список
-[2] добавить
-[3] удалить
-[4] редактировать{kjir}''')
+ print(f'''{jir}
+{kras}══════════════════════╗{kjir}
+[&] Редактор:         {kras}║{kjir}
+{kras}══════════════════════╣{kjir}
+[0] Выход             {kras}║{kjir}
+[1] список            {kras}║{kjir}
+[2] добавить          {kras}║{kjir}
+[3] удалить           {kras}║{kjir}
+[4] редактировать     {kras}║{kjir}
+{kras}══════════════════════╝{kon}''')
  global asa
  asa = input('--> ')
  if asa == '0':
@@ -33,14 +37,28 @@ def Z():
 
 def z1():
  z1_2()
+ z1_3()
  x = 0
  if asa == '1':
+  key = kras
   os.system(ff)
-  print('[&] Список: \n[0] Назад')
+  print(f'''
+{kras}══════════════════════════════╗{kjir}
+[&] Список:                   {kras}║{kjir}
+{kras}══════════════════════════════╣{kjir}
+{zel}[0]{kon + jir} Назад                     {kras}║{kjir}''')
  if asa == '3':
-  print('[&] Удалить: ')
+  print(f'''
+{kras}══════════════════════════════╗{kjir}
+[&] Удалить:                  {kras}║{kjir}
+{kras}══════════════════════════════╣{kjir}''')
+  key = zel
  if asa == '4':
-  print('[&] Изменить')
+  print(f'''
+{kras}══════════════════════════════╗{kjir}
+[&] Изменить:                 {kras}║{kjir}
+{kras}══════════════════════════════╣{kjir}''')
+  key = zel
 
  with open('nanu.txt') as f3:
   Num = len(f3.readlines())
@@ -49,9 +67,10 @@ def z1():
   list1 = list(range(1, Num))
  with open('nanu.txt') as f3:
   for n, line in enumerate(f3, 1):
-   kk = '[&] Список:\n[0] Назад'
-   line1 = line.strip(' \n: ')
-   print(f'[{n}] {line1}')
+   line1 = line.strip('\n')
+   print(f'{key + jir}[{n}]{kon + jir} {line1}')
+
+ print(f'{kras}══════════════════════════════╝{kon}')
  if asa == '1':
   cc = input('--> ')
   if cc == '0':
@@ -61,8 +80,18 @@ def z1():
    print(f'{kras + jir}Неверный ввод!{kon}')
    time.sleep(1)
    z1()
-
 def z1_2():
+ with open('names.txt') as f1, open("numbers.txt") as ff1:
+  with open('nnames.txt', 'w') as f2, open("nnumbers.txt", "w") as ff2:
+   for line1 in f1:
+    if line1.strip():
+     f2.write(line1)
+   for line2 in ff1:
+    if line2.strip():
+     ff2.write(line2)
+ os.rename("nnames.txt", "names.txt") ; os.rename("nnumbers.txt", "numbers.txt")
+
+def z1_3():
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  File3 = 'nanu.txt'
@@ -84,12 +113,41 @@ def z3():
  os.system(ff)
  File1 = 'names.txt'
  File2 = 'numbers.txt'
- print('[&] Удалить\n[0] Назад\n[1] Продолжить')
+ print(f'''
+{kras}════════════════╗{kjir}
+[&] Удалить:    {kras}║{kjir}
+{kras}════════════════╣{kjir}
+[0] Назад       {kras}║{kjir}
+[1] Продолжить  {kras}║{kjir}
+{kras}════════════════╝{kon}''')
  tt = input('--> ')
  if tt == '0':
   Z()
  if tt == '1':
+    z3_3()
+    os.system(ff)
+    print(f'{zel + jir}Удаленно имя: {nomer11}\nУдален номер: {nomer22}{kon}')
+    time.sleep(2)
+#    os.rename('tmp1.txt', File1) ; os.rename('tmp2.txt', File2) # пере
+    z3()
+ if tt not in list1:
+   with open("names.txt") as f1, open("numbers.txt") as ff1:
+    del nomer1
+    del nomer2
+ else:
+   os.system(ff)
+   print(f'{kras + jir}Неверный ввод!{kon}')
+   time.sleep(1)
+   z3()
+
+def z3_3():
+  File1 = "names.txt"
+  File2 = "numbers.txt"
   z3z4_2(File1, File2)
+  global nomer11
+  nomer11 = nomer1
+  global nomer22
+  nomer22 = nomer2
   hh = int(jek)
   hh -= 1
   if hh in list1:
@@ -102,19 +160,18 @@ def z3():
      f1.write("".join(data1))
      ff1.write("".join(data2))
 
-    os.system(ff)
-    print(f'{zel + jir}Удаленно имя: {nomer1}\b\nУдален номер: {nomer2}{kon}')
-    time.sleep(2)
-    os.system("mv %s %s" % ('tmp1.txt', File1)) ; os.system("mv %s %s" % ('tmp2.txt', File2)) # пере
-    z3()
-  else:
-   os.system(ff)
-   print(f'{kras + jir}Неверный ввод!{kon}')
-   time.sleep(1)
-   z3()
 def z2():
+ tt = 0
  os.system(ff)
- print('[&] Добавить\n[0] Назад\n[1] Продолжить')
+ if tt == 1:
+  print(vip)
+ print(f'''
+{kras}════════════════╗{kjir}
+[&] Добавить:   {kras}║{kjir}
+{kras}════════════════╣{kjir}
+[0] Назад       {kras}║{kjir}
+[1] Продолжить  {kras}║{kjir}
+{kras}════════════════╝{kon}''')
  File1 = 'names.txt'
  File2 = 'numbers.txt'
  xx = input('--> ')
@@ -129,13 +186,24 @@ def z2():
    f1.write(f'\n{xx}')
    xxx = input('Введите номер: ')
    ff1.write(f'\n{xxx}')
-   os.system(ff)
-   print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
-   print(f'{zel}Добавлен номер: {xxx}{kon}')
-   time.sleep(4)
+   pr1 = len(xxx)
+   pr2 = len(xx)
+   print(pr1)
+   time.sleep(5)
+   if pr1 == 11 and pr2 <= 12:
+    os.system(ff)
+    print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
+    print(f'{zel}Добавлен номер: {xxx}{kon}')
+    time.sleep(3)
  else:
   os.system(ff)
   print(f'{kras + jir}Неверный ввод!{kon}')
+  tt += 1
+#  global vip
+  vip = f'''
+\033[33m{jir}Подсказка:
+1.Имя должно быть не больше 12 символов, а номер не больше 11.
+2.Номер должен начинаться с 7, но без +.{kon}'''
   time.sleep(1)
   z2()
  z2()
@@ -144,7 +212,7 @@ def z3z4_2(File1, File2):
  os.system(ff)
  z1()
  global jek
- jek = input('Введите поряд.номер: ')
+ jek = input('{jir}Введите поряд.номер: ')
  if int(jek) in list1:
   with open(File1) as fff1, open(File2) as fff2:
    h = int(jek)
@@ -162,6 +230,8 @@ def z3z4_2(File1, File2):
      nomer2 = line2.split()[0] #слово в строке
     xx += 1
  else:
+  File1 = "names.txt"
+  File2 = "numbers.txt"
   os.system(ff)
   print(f'{kras + jir}Неверный ввод!{kon}')
   time.sleep(1)
@@ -196,7 +266,13 @@ def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
 
 def z4():
  os.system(ff)
- print('[&] Изменить\n[0] Назад\n[1] Продолжить')
+ print(f'''
+{kras}════════════════╗{kjir}
+[&] Изменить:   {kras}║{kjir}
+{kras}════════════════╣{kjir}
+[0] Назад       {kras}║{kjir}
+[1] Продолжить  {kras}║{kjir}
+{kras}════════════════╝{kon}''')
  kl = input('--> ')
  if kl == '0':
   Z()
@@ -208,8 +284,8 @@ def z4():
   FindThis1 = nomer1
   FindThis2 = nomer2
   os.system(ff)
-  new1 = '\n' #input('Введите новое имя: ')
-  new2 = '\n' #input('Введите новый номер: ')
+  new1 = input('Введите новое имя: ')
+  new2 = input('Введите новый номер: ')
   result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
  else:
   os.system(ff)
