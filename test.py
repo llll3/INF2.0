@@ -46,7 +46,7 @@ def z1():
 {kras}══════════════════════════════╗{kjir}
 [&] Список:                   {kras}║{kjir}
 {kras}══════════════════════════════╣{kjir}
-{zel}[0]{kon + jir} Назад                     {kras}║{kjir}''')
+{zel}[0]{kjir} Назад                     {kras}║{kjir}''')
  if asa == '3':
   print(f'''
 {kras}══════════════════════════════╗{kjir}
@@ -70,7 +70,7 @@ def z1():
    line1 = line.strip('\n')
    print(f'{key + jir}[{n}]{kon + jir} {line1}')
 
- print(f'{kras}══════════════════════════════╝{kon}')
+  print(f'{kras}══════════════════════════════╝{kon}')
  if asa == '1':
   cc = input('--> ')
   if cc == '0':
@@ -80,6 +80,7 @@ def z1():
    print(f'{kras + jir}Неверный ввод!{kon}')
    time.sleep(1)
    z1()
+
 def z1_2():
  with open('names.txt') as f1, open("numbers.txt") as ff1:
   with open('nnames.txt', 'w') as f2, open("nnumbers.txt", "w") as ff2:
@@ -89,7 +90,7 @@ def z1_2():
    for line2 in ff1:
     if line2.strip():
      ff2.write(line2)
- os.rename("nnames.txt", "names.txt") ; os.rename("nnumbers.txt", "numbers.txt")
+   os.rename("nnames.txt", "names.txt") ; os.rename("nnumbers.txt", "numbers.txt")
 
 def z1_3():
  File1 = 'names.txt'
@@ -120,7 +121,7 @@ def z3():
 [0] Назад       {kras}║{kjir}
 [1] Продолжить  {kras}║{kjir}
 {kras}════════════════╝{kon}''')
- tt = input('--> ')
+ tt = input(f'{jir}--> {kon}')
  if tt == '0':
   Z()
  if tt == '1':
@@ -128,17 +129,17 @@ def z3():
     os.system(ff)
     print(f'{zel + jir}Удаленно имя: {nomer11}\nУдален номер: {nomer22}{kon}')
     time.sleep(2)
-#    os.rename('tmp1.txt', File1) ; os.rename('tmp2.txt', File2) # пере
     z3()
- if tt not in list1:
-   with open("names.txt") as f1, open("numbers.txt") as ff1:
-    del nomer1
-    del nomer2
- else:
-   os.system(ff)
-   print(f'{kras + jir}Неверный ввод!{kon}')
-   time.sleep(1)
-   z3()
+#    os.rename('tmp1.txt', File1) ; os.rename('tmp2.txt', File2) # пере
+# if tt not in list1:
+#   with open("names.txt") as f1, open("numbers.txt") as ff1:
+#    del nomer1
+#    del nomer2
+# else:
+#   os.system(ff)
+#   print(f'{kras + jir}Неверный ввод!{kon}')
+#   time.sleep(1)
+#   z3()
 
 def z3_3():
   File1 = "names.txt"
@@ -161,10 +162,7 @@ def z3_3():
      ff1.write("".join(data2))
 
 def z2():
- tt = 0
  os.system(ff)
- if tt == 1:
-  print(vip)
  print(f'''
 {kras}════════════════╗{kjir}
 [&] Добавить:   {kras}║{kjir}
@@ -172,47 +170,49 @@ def z2():
 [0] Назад       {kras}║{kjir}
 [1] Продолжить  {kras}║{kjir}
 {kras}════════════════╝{kon}''')
- File1 = 'names.txt'
- File2 = 'numbers.txt'
- xx = input('--> ')
+ xx = input(f'{jir}--> {jir}')
  if xx == '0': Z()
  if xx == '1':
   File1 = 'names.txt'
   File2 = 'numbers.txt'
   File3 = 'nanu.txt'
   os.system(ff)
-  with open(File1,'a') as f1,  open(File2, 'a') as ff1:
-   xx = input('Введите имя: ')
-   f1.write(f'\n{xx}')
-   xxx = input('Введите номер: ')
-   ff1.write(f'\n{xxx}')
-   pr1 = len(xxx)
-   pr2 = len(xx)
-   print(pr1)
-   time.sleep(5)
-   if pr1 == 11 and pr2 <= 12:
-    os.system(ff)
-    print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
-    print(f'{zel}Добавлен номер: {xxx}{kon}')
-    time.sleep(3)
+  with open(File1, 'a') as f1, open(File2, 'a') as ff1:
+   if  len(xx) <=12:
+    xx = input('Введите имя: ')
+    xxx = input('Введите номер: ')
+    if len(xxx) == 11:
+     f1.write(f'\n{xx}')
+     ff1.write(f'\n{xxx}')
+     os.system(ff)
+     print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
+     print(f'{zel}Добавлен номер: {xxx}{kon}')
+     time.sleep(3)
+#     os.rename(File1, "n.tmp") ; os.rename(File2, "nn.tmp")
+#     os.rename("n.tmp", File1) ; os.rename("nn.tmp", File2)
+#     z1_2()
+     z2()
+    else:
+     os.system(ff)
+     print(f'{kras + jir}Неверный ввод!{kon}')
+     time.sleep(1)
+     z2()
+   else:
+     os.system(ff)
+     print(f'{kras + jir}Неверный ввод!{kon}')
+     time.sleep(1)
+     z2()
  else:
   os.system(ff)
   print(f'{kras + jir}Неверный ввод!{kon}')
-  tt += 1
-#  global vip
-  vip = f'''
-\033[33m{jir}Подсказка:
-1.Имя должно быть не больше 12 символов, а номер не больше 11.
-2.Номер должен начинаться с 7, но без +.{kon}'''
   time.sleep(1)
   z2()
  z2()
-
 def z3z4_2(File1, File2):
  os.system(ff)
  z1()
  global jek
- jek = input('{jir}Введите поряд.номер: ')
+ jek = input(f'{jir}Введите поряд.номер: {kon}')
  if int(jek) in list1:
   with open(File1) as fff1, open(File2) as fff2:
    h = int(jek)
