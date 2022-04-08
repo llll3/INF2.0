@@ -74,15 +74,6 @@ def z1_2():
   os.system("mv %s %s" % (File1, 'names.tmp')) ; os.system("mv %s %s" % (File2, 'numbers.tmp')) # переименовываем временный файл
   os.system("mv %s %s" % ('names.tmp', File1)) ; os.system("mv %s %s" % ('numbers.tmp', File2)) # пер
   for i, j in zip(f1.readlines(), f2.readlines()):
-#   for line1 in f1:
- #   jj = line1.rstrip('\n:')
-  #  global i1
-   # i1 = jj
-#    for line2 in f2:
- #    jj2 = line2.rstrip('\n:')
-  #   global j1
-   #  j1 = jj2
-
    f4.write(f'{i.strip()}: {j}')
 
  path3 = os.path.join(os.path.abspath(os.path.dirname(__file__)), File3)
@@ -102,19 +93,18 @@ def z3():
   hh = int(jek)
   hh -= 1
   if hh in list1:
-   with open(File1, "r") as f1, open(File2, "r") as ff1, open("tmp1.txt", "w") as f2, open("tmp2.txt", "w") as ff2:
-    for line1 in f1:
-     if line1.strip("\n") != nomer1:
-      f2.write(line1)
-
-    for line2 in ff1:
-     if line2.strip("\n") != nomer2:
-      ff2.write(line2)
+    with open("names.txt") as f1, open("numbers.txt") as ff1:
+     data1 = f1.readlines()
+     data2 = ff1.readlines()
+    data1 = filter(lambda line: f"{nomer1}" not in line, data1)
+    data2 = filter(lambda line: f"{nomer2}" not in line, data2)
+    with open("names.txt", "w") as f1, open("numbers.txt", "w") as ff1:
+     f1.write("".join(data1))
+     ff1.write("".join(data2))
 
     os.system(ff)
     print(f'{zel + jir}Удаленно имя: {nomer1}\b\nУдален номер: {nomer2}{kon}')
     time.sleep(2)
-#    os.system("mv %s %s" % (File1, 'names.tmpp')) ; os.system("mv %s %s" % (File2, 'numbers.tmpp')) # переименовываем временный файл
     os.system("mv %s %s" % ('tmp1.txt', File1)) ; os.system("mv %s %s" % ('tmp2.txt', File2)) # пере
     z3()
   else:
@@ -122,9 +112,6 @@ def z3():
    print(f'{kras + jir}Неверный ввод!{kon}')
    time.sleep(1)
    z3()
-# with open(File1) as f1, open(File2) as ff1:
-#   os.rename("File1", "names.txt.mmm") ; os.rename("File2", "numbers.txt.mmm")
- #  os.rename("names.txt.mmm", "File1") ; os.rename("numbers.txt.mmm", "File2")
 def z2():
  os.system(ff)
  print('[&] Добавить\n[0] Назад\n[1] Продолжить')
