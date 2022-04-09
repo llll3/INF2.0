@@ -3,7 +3,6 @@ zel = '\033[32m'
 kras = '\033[31m'
 jir = '\033[1m'
 kon = '\033[m'
-
 fio = '\033[35m'
 kjir = kon + jir
 list2 = str(list(range(1, 5)))
@@ -34,7 +33,9 @@ def Z():
  elif asa == '3':
   z3()
  elif asa == '4':
-  z4()
+  error1 = '12345678910111213141516'
+  error2 = '12345678910111213141516'
+  z4(error1, error2)
  elif asa != list2:
   Z()
 
@@ -132,7 +133,6 @@ def z3():
     os.system(ff)
     print(f'{zel + jir}Удаленно имя: {nomer11}\nУдален номер: {nomer22}{kon}')
     time.sleep(2)
-#    os.rename('tmp1.txt', File1) ; os.rename('tmp2.txt', File2) # пере
     z3()
  if tt not in list1:
    with open("names.txt") as f1, open("numbers.txt") as ff1:
@@ -166,14 +166,6 @@ def z3_3():
 
 def z2(error1, error2):
  os.system(ff)
-# error1 = f'1'
-# error2 = f'2'
- if error1[0] == 'О':
-  print(f'{kras+jir}{error1}')
- if error2[0] == 'О':
-  print(f'{kras+jir}{error2}')
-# print(error1[0:])
- #print(error2[0:])
  print(f'''
 {kras}════════════════╗{kjir}
 [&] Добавить:   {kras}║{kjir}
@@ -189,7 +181,20 @@ def z2(error1, error2):
   File1 = 'names.txt'
   File2 = 'numbers.txt'
   File3 = 'nanu.txt'
-  with open(File1,'a') as f1,  open(File2, 'a') as ff1:
+  z2_22(File1, File2, File3, error1, error2)
+ else:
+  os.system(ff)
+  print(f'{kras + jir}Неверный ввод!{kon}')
+  time.sleep(1)
+  z2(error1, error2)
+
+def z2_22(File1, File2, File3, error1, error2):
+ os.system(ff)
+ if error1[0] == 'О':
+  print(f'{kras+jir}{error1}')
+ if error2[0] == 'О':
+  print(f'{kras+jir}{error2}')
+ with open(File1,'a') as f1,  open(File2, 'a') as ff1:
    xx = input('Введите имя: ')
    if len(xx) <= 12:
     f1.write(f'\n{xx}')
@@ -203,20 +208,9 @@ def z2(error1, error2):
      error1 = '12345678910111213141516'
      error2 = '12345678910111213141516'
     else:
-#     os.system(ff)
-#     print(f'{kras+jir}Ошибка символов{kon}')
-#     time.sleep(1)
      error2 = f'Ошибка: номер должен начинаться с 7(без +), а также должен состоять из 11 цифр.{kon}'
    else:
-#    os.system(ff)
-#    print(f'{kras+jir}Ошибка символов{kon}')
-#    time.sleep(1)
     error1 = f'Ошибка: имя не должно превышать 12 символов.{kon}'
- else:
-  os.system(ff)
-  print(f'{kras + jir}Неверный ввод!{kon}')
-  time.sleep(1)
-  z2(error1, error2)
  z2(error1, error2)
 
 def z3z4_2(File1, File2):
@@ -248,7 +242,7 @@ def z3z4_2(File1, File2):
   time.sleep(1)
   z3z4_2(File1, File2)
 
-def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
+def z4_3(File1, File2, FindThis1, FindThis2, new1, new2, error1, error2):
  TemporaryFile1 = File1 + '.tmp' ; TemporaryFile2 = File2 + '.tmp'   # создаём файл
  os.system("touch %s" % TemporaryFile1) ; os.system("touch %s" % TemporaryFile2)    # временный файл
 
@@ -273,9 +267,9 @@ def z4_3(File1, File2, FindThis1, FindThis2, new1, new2):
  os.system(ff)
  print(f'{zel + jir}Изменено имя: {FindThis1} на {new1}\nИзменён номер: {FindThis2} на {new2}{kon}')
  time.sleep(4)
- z4()
+ z4(error1, error2)
 
-def z4():
+def z4(error1, error2):
  os.system(ff)
  print(f'''
 {kras}════════════════╗{kjir}
@@ -294,14 +288,33 @@ def z4():
   z3z4_2(File1, File2)
   FindThis1 = nomer1
   FindThis2 = nomer2
-  os.system(ff)
-  new1 = input('Введите новое имя: ')
-  new2 = input('Введите новый номер: ')
-  result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2)
+  z4_22(File1, File2, FindThis1, FindThis2, error1, error2)
  else:
   os.system(ff)
   print(f'{kras + jir}Неверный ввод!{kon}')
   time.sleep(1)
-  z4()
+#  error1 = '12345678910111213141516'
+#  error2 = '12345678910111213141516'
+  z4(error1, error2)
+
+def z4_22(File1, File2, FindThis1, FindThis2, error1, error2):
+   os.system(ff)
+   if error1[0] == 'О':
+    print(f'{kras+jir}{error1}')
+   if error2[0] == 'О':
+    print(f'{kras+jir}{error2}')
+   new1 = input('Введите новое имя: ')
+   if len(new1) <= 12:
+    new2 = input('Введите новый номер: ')
+    if len(new2) == 11 and new2[0] == '7':
+     error1 = '12345678910111213141516'
+     error2 = '12345678910111213141516'
+     result12 = z4_3(File1, File2, FindThis1, FindThis2, new1, new2, error1, error2)
+    else:
+     error2 = f'Ошибка: номер должен начинаться с 7(без +), а также должен состоять из 11 цифр.{kon}'
+   else:
+    error1 = f'Ошибка: имя не должно превышать 12 символов.{kon}'
+   z4_22(error1, error2)
+
 
 Z()
