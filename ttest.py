@@ -28,7 +28,9 @@ def Z():
  if asa == '1':
   z1()
  elif asa == '2':
-  z2()
+  error1 = ''
+  error2 = ''
+  z2(error1, error2)
  elif asa == '3':
   z3()
  elif asa == '4':
@@ -162,11 +164,13 @@ def z3_3():
      f1.write("".join(data1))
      ff1.write("".join(data2))
 
-def z2():
- tt = 0
+def z2(error1, error2):
  os.system(ff)
- if tt == 1:
-  print(vip)
+ if error1 != '1':
+  print(error1)
+ if error2 != '1':
+  print(error2)
+else:
  print(f'''
 {kras}════════════════╗{kjir}
 [&] Добавить:   {kras}║{kjir}
@@ -174,41 +178,41 @@ def z2():
 [0] Назад       {kras}║{kjir}
 [1] Продолжить  {kras}║{kjir}
 {kras}════════════════╝{kon}''')
- File1 = 'names.txt'
- File2 = 'numbers.txt'
- xx = input('--> ')
- if xx == '0': Z()
- if xx == '1':
   File1 = 'names.txt'
   File2 = 'numbers.txt'
-  File3 = 'nanu.txt'
-  os.system(ff)
-  with open(File1,'a') as f1,  open(File2, 'a') as ff1:
-   xx = input('Введите имя: ')
-   f1.write(f'\n{xx}')
-   xxx = input('Введите номер: ')
-   ff1.write(f'\n{xxx}')
-   pr1 = len(xxx)
-   pr2 = len(xx)
-   print(pr1)
-   time.sleep(5)
-   if pr1 == 11 and pr2 <= 12:
-    os.system(ff)
-    print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
-    print(f'{zel}Добавлен номер: {xxx}{kon}')
-    time.sleep(3)
- else:
-  os.system(ff)
-  print(f'{kras + jir}Неверный ввод!{kon}')
-  tt += 1
-#  global vip
-  vip = f'''
-\033[33m{jir}Подсказка:
-1.Имя должно быть не больше 12 символов, а номер не больше 11.
-2.Номер должен начинаться с 7, но без +.{kon}'''
-  time.sleep(1)
-  z2()
- z2()
+  xx = input('--> ')
+  if xx == '0': Z()
+  if xx == '1':
+   File1 = 'names.txt'
+   File2 = 'numbers.txt'
+   File3 = 'nanu.txt'
+   with open(File1,'a') as f1,  open(File2, 'a') as ff1:
+    xx = input('Введите имя: ')
+    if len(xx) <= 12:
+     f1.write(f'\n{xx}')
+     xxx = input('Введите номер: ')
+     if len(xxx) == 11 and xxx[0] == '7':
+      ff1.write(f'\n{xxx}')
+      os.system(ff)
+      print(f'{ jir + zel}Добавлено имя: {xx}{kjir}')
+      print(f'{zel}Добавлен номер: {xxx}{kon}')
+      time.sleep(3)
+     else:
+ #     os.system(ff)
+ #     print(f'{kras+jir}Ошибка символов{kon}')
+ #     time.sleep(1)
+      error2 = f'{kras+jir}Ошибка: номер должен начинаться с 7(без +), а также должен состоять из 11 цифр.{kon}'
+    else:
+ #    os.system(ff)
+ #    print(f'{kras+jir}Ошибка символов{kon}')
+ #    time.sleep(1)
+     error1 = f'{kras+jir}Ошибка: имя не должно превышать 12 символов.{kon}'
+  else:
+   os.system(ff)
+   print(f'{kras + jir}Неверный ввод!{kon}')
+   time.sleep(1)
+   z2(error1, error2)
+   z2(error1, error2)
 
 def z3z4_2(File1, File2):
  os.system(ff)
@@ -296,4 +300,3 @@ def z4():
   z4()
 
 Z()
-
