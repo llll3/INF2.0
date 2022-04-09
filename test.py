@@ -15,13 +15,13 @@ def Z():
 [&] Редактор:         {kras}║{kjir}
 {kras}══════════════════════╣{kjir}
 [0] Выход             {kras}║{kjir}
-[1] список            {kras}║{kjir}
-[2] добавить          {kras}║{kjir}
-[3] удалить           {kras}║{kjir}
-[4] редактировать     {kras}║{kjir}
+[1] Список            {kras}║{kjir}
+[2] Добавить          {kras}║{kjir}
+[3] Удалить           {kras}║{kjir}
+[4] Редактировать     {kras}║{kjir}
 {kras}══════════════════════╝{kon}''')
  global asa
- asa = input('--> ')
+ asa = input(f'{jir}[?] -->{kon} ')
  if asa == '0':
   sys.exit()
  if asa == '1':
