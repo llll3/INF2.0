@@ -83,7 +83,8 @@ alias inftor-tex3='cd ~ && cd inf-tor && ./inf-tor 79283968782 3 1 0'
 alias inftor-inf3='cd ~ && cd inf-tor && ./inf-tor 79283984241 3 1 0'
 
 #################################################
-
+alias reznanu='cp nanu/names.rez nanu/names.txt ; cp nanu/numbers.rez nanu/numbers.txt'
+alias rzn='cp nanu/names.rez nanu/names.txt ; cp nanu/numbers.rez nanu/numbers.txt'
 alias linter='autopep8 --in-place --aggressive --aggressive'
 alias gadd='git add -A'
 alias gcom='git commit -m "qwerty"'
