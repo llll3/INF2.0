@@ -149,7 +149,7 @@ def faq(F1, F2, F3, bmb, number):
         return sms(F1, F2, F3, bmb, number)
     else:
         os.system(ff)
-        print(f'{kras}Ошибка{kon}:{jel}Неверный ввод{kon}!')
+        print(f'{kras}Ошибка{kon}: {jel}Неверный ввод{kon}!')
         time.sleep(1)
         return faq(F1, F2, F3, bmb, number)
 
@@ -247,7 +247,7 @@ def z1(F1, F2, F3, abba):
             return Z(F1, F2, F3)
         else:
             os.system(ff)
-            print(f'{kras}Ошибка{kon}:{jel}Неверный ввод{kon}!')
+            print(f'{kras}Ошибка{kon}: {jel}Неверный ввод{kon}!')
             time.sleep(1)
             return z1(F1, F2, F3, abba)
 
@@ -285,12 +285,13 @@ def z3(F1, F2, F3):
 {kras}════════════════╗{kjir}
 [&] Удалить:    {kras}║{kjir}
 {kras}════════════════╣{kjir}
-[0] Назад       {kras}║{kjir}
-[1] Продолжить  {kras}║{kjir}
+{zel}[0]{kon} Назад       {kras}║{kjir}
+{zel}[1]{kon} Продолжить  {kras}║{kjir}
 {kras}════════════════╝{kon}''')
     tt = input(f'{jir}--> {kon}')
     if tt == '0':
         Z(F1, F2, F3)
+
     if tt == '1':
         z3_3(F1, F2, F3)
         os.system(ff)
@@ -298,13 +299,13 @@ def z3(F1, F2, F3):
         print(f'{zel}Удален номер:{kon} {kras}{nomer22}{kon}')
         time.sleep(2)
         z3(F1, F2, F3)
-    if tt not in list1:
-        with open(F1), open(F2):
-            del nomer1
-            del nomer2
+#    if tt not in list1:
+#        with open(F1), open(F2):
+#            del nomer1
+#            del nomer2
     else:
         os.system(ff)
-        print(f'{kras}Ошибка{kon}:{jel}Неверный ввод{kon}!')
+        print(f'{kras}Ошибка{kon}: {jel}Неверный ввод{kon}!')
         time.sleep(1)
         z3(F1, F2, F3)
 
@@ -334,8 +335,8 @@ def z2(F1, F2, F3):
 {kras}════════════════╗{kjir}
 [&] Добавить:   {kras}║{kjir}
 {kras}════════════════╣{kjir}
-[0] Назад       {kras}║{kjir}
-[1] Продолжить  {kras}║{kjir}
+{zel}[0]{kon} Назад       {kras}║{kjir}
+{zel}[1]{kon} Продолжить  {kras}║{kjir}
 {kras}════════════════╝{kon}''')
     xx = input(f'{jir}--> {kon}')
     if xx == '0':
@@ -344,14 +345,13 @@ def z2(F1, F2, F3):
         return z2_22(F1, F2, F3)
     else:
         os.system(ff)
-        print(f'{kras}Ошибка{kon}:{jel}Неверный ввод{kon}!')
+        print(f'{kras}Ошибка{kon}: {jel}Неверный ввод{kon}!')
         time.sleep(1)
         return z2(F1, F2, F3)
 
 
 def z2_22(F1, F2, F3):
     os.system(ff)
-    time.sleep(5)
     with open(F1, 'a') as f1, open(F2, 'a') as ff1:
         print(f'''{jel}
 Подсказка: Имя должно быть не больше 12 символов, а номер должен состоять {kras}только{kon}{jel} из 11 цифр.
@@ -457,9 +457,9 @@ def z4_3(F1, F2, F3, FT1, FT2, new1, new2):
     # переименовываем временный файл
     os.system("mv %s %s" % (TF2, F2))
     os.system(ff)
-    print(f'{zel}Изменено имя: {FT1} на {new1}{kon}')
-    print(f'{zel}Изменён номер: {FT2} на {new2}{kon}')
-    time.sleep(3)
+    print(f'{zel}Успешно{kon}, изменено имя{kon}: {kras}{FT1}{kon} на {jel}{new1}{kon}')
+    print(f'{zel}Успешно{kon}, изменён номер{kon}: {kras}{FT2}{kon} на {jel}{new2}{kon}')
+    time.sleep(5)
     return z4(F1, F2, F3)
 
 
@@ -503,7 +503,7 @@ def z4_22(F1, F2, F3, FT1, FT2):
             time.sleep(1)
             return z4_22(F1, F2, F3, FT1, FT2)
         new2 = str(new2)
-        if len(new2) == 1 and new2[0] == '7':
+        if len(new2) == 11 and new2[0] == '7':
             new2 = int(new2)
             return z4_3(F1, F2, F3, FT1, FT2, new1, new2)
         else:
