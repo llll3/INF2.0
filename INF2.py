@@ -57,25 +57,26 @@ def update():
     print(f'{zel}Обновление{kon} {fio}INF{kon}...')
     time.sleep(2)
     os.system('cd ~ ; pkg install git python3 nano')
-    os.system('git clone https://github.com/llll3/INF2.0')
-    os.system('cd INF2.0 ; cp bash.bashrc ../../usr/etc/')
-    os.system('source ../../usr/etc/bash.bashrc')
+    os.system('cd ~ ; git clone https://github.com/llll3/INF2.0')
+    os.system('cp ~/INF2.0/bmb/bash.bashrc ../usr/etc/')
+    os.system('cd ~ ; source ../usr/etc/bash.bashrc')
     os.system('yes | pkg update ; yes | upgrade')
+    time.sleep(4)
     os.system(ff)
     print(f'{zel}Обновление завершенно!{kon}')
     time.sleep(2)
     return start()
-
 
 def install():
     os.system(ff)
     print(f'{zel}Установка{kon} {fio}INf{kon}...')
     time.sleep(2)
     os.system('cd ~ ; pkg install git python3 nano')
-    os.system('git clone https://github.com/llll3/INF2.0')
-    os.system('cd INF2.0 ; cp bash.bashrc ../../usr/etc/')
-    os.system('source ../../usr/etc/bash.bashrc')
+    os.system('cd ~ ;git clone https://github.com/llll3/INF2.0')
+    os.system('cp ~/INF2.0/bmb/bash.bashrc ../usr/etc/')
+    os.system('cd ~ ; source ../usr/etc/bash.bashrc')
     os.system('yes | pkg update ; yes | pkg upgrade')
+    time.sleep(4)
     os.system(ff)
     print(f'{zel}Установка завершенна!{kon}')
     time.sleep(1)
@@ -88,7 +89,6 @@ def zapusk(bmb):
     time.sleep(1)
     os.system(f'chmod 777 {bmb} ; {bmb}')
     return exit1()
-
 
 def spzapusk(F1, F2, F3, bmb):
     os.system(ff)
