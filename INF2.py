@@ -357,13 +357,29 @@ def z2_22(F1, F2, F3):
 Подсказка: Имя должно быть не больше 12 символов, а номер должен состоять {kras}только{kon}{jel} из 11 цифр.
 Подсказка: Номер должен начинаться с 7(без +).{kon}''')
         xx = input('Введите имя: ')
+        F11 = open(F1)
+        gg = F11.readlines()
+        F11.close()
+        if str(xx) + '\n' in gg:
+            os.system(ff)
+            print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
+            time.sleep(2)
+            return z2_22(F1, F2, F3)
         if len(xx) <= 12:
             try:
                 xxx = int(input('Введите номер: '))
+                F22 = open(F2)
+                gg1 = F22.readlines()
+                F22.close()
+                if str(xxx) + '\n' in gg1:
+                    os.system(ff)
+                    print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
+                    time.sleep(2)
+                    return z2_22(F1, F2, F3)
             except ValueError:
                 os.system(ff)
-                print(f'{kras}В номер водить только цифры!{kon}')
-                time.sleep(1)
+                print(f'{kras}Ошибка{kon}: {jel}номер должен состоять {kras}только{kon} {jel}цифр{kon}!')
+                time.sleep(3)
                 return z2_22(F1, F2, F3)
             xxx = str(xxx)
             if len(xxx) == 11 and xxx[0] == '7':
@@ -378,7 +394,7 @@ def z2_22(F1, F2, F3):
             else:
                 os.system(ff)
                 print(f"""{kras}Ошибка{kon}:{jel} номер должен начинаться с 7(без +),
-                а также должен состоять из 11 цифр{kon}!""", sep=' ')
+                а также должен состоять из 11 цифр{kon}!""")
                 time.sleep(2)
         else:
             os.system(ff)
@@ -494,9 +510,26 @@ def z4_22(F1, F2, F3, FT1, FT2):
 Подсказка: Имя должно быть не больше 12 символов, а номер должен состоять {kras}только{kon}{jel} из 11 цифр.
 Подсказка: Номер должен начинаться с 7(без +).{kon}''')
     new1 = input('Введите новое имя: ')
+    F11 = open(F1)
+    gg1 = F11.readlines()
+    F11.close()
+    if str(new1) + '\n' in gg1:
+        os.system(ff)
+        print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
+        time.sleep(2)
+        return z4_22(F1, F2, F3, FT1, FT2)
     if len(new1) <= 12:
         try:
             new2 = int(input('Введите новый номер: '))
+            F22 = open(F2)
+            gg2 = F22.readlines()
+            new2 = str(new2)
+            F22.close()
+            if str(new2) + '\n' in gg2:
+                os.system(ff)
+                print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
+                time.sleep(2)
+                return z4_22(F1, F2, F3, FT1, FT2)
         except ValueError:
             os.system(ff)
             print(f'{kras}Вводить только цифры!{kon}')
