@@ -299,10 +299,6 @@ def z3(F1, F2, F3):
         print(f'{zel}Удален номер:{kon} {kras}{nomer22}{kon}')
         time.sleep(2)
         z3(F1, F2, F3)
-#    if tt not in list1:
-#        with open(F1), open(F2):
-#            del nomer1
-#            del nomer2
     else:
         os.system(ff)
         print(f'{kras}Ошибка{kon}: {jel}Неверный ввод{kon}!')
