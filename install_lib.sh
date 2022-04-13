@@ -5,4 +5,4 @@ rm -rf $HOME/../usr/etc/bash.bashrc
 cp $HOME/INF2.0/bmb/bash.bashrc ../usr/etc/
 source $HOME/../usr/etc/bash.bashrc
 clear -x
-echo 'Чтобы запустить программу напишите INF2.0'
+echo 'Перезапустите терминал. Команда для запуска программы "INF2.0"'
