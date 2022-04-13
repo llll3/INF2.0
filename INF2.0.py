@@ -15,11 +15,11 @@ kjir = kon + jir
 
 def start():
     os.system(ff)
-    pwd = '/data/data/com.termux/files/home/INF2.0/nanu/'
+    pwd = 'nanu/'
     F1 = f'{pwd}names.txt'
     F2 = f'{pwd}numbers.txt'
     F3 = f'{pwd}nanu.txt'
-    bmb = '~/INF2.0/bmb/inf'
+    bmb = f'bmb/inf'
     print(f'''
 {kras}══════════════════════╗{kon}
 [&] Версия {fio}INF{kon} [2.0]  {kras}║{kon}
@@ -361,6 +361,12 @@ def z2_22(F1, F2, F3):
             print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
             time.sleep(2)
             return z2_22(F1, F2, F3)
+        elif str(xx) in gg:
+            os.system(ff)
+            print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
+            time.sleep(2)
+            return z2_22(F1, F2, F3)
+
         if len(xx) <= 12:
             try:
                 xxx = int(input('Введите номер: '))
@@ -372,6 +378,12 @@ def z2_22(F1, F2, F3):
                     print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
                     time.sleep(2)
                     return z2_22(F1, F2, F3)
+                elif str(xxx) in gg1:
+                    os.system(ff)
+                    print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
+                    time.sleep(2)
+                    return z2_22(F1, F2, F3)
+
             except ValueError:
                 os.system(ff)
                 print(f'{kras}Ошибка{kon}: {jel}номер должен состоять {kras}только{kon} {jel}цифр{kon}!')
@@ -409,7 +421,8 @@ def z3z4_2(F1, F2, F3, gg):
         global jek
         jek = int(input(f'{jir}Введите поряд.номер: {kon}'))
     except ValueError:
-        os.system(ff)
+        os.syste
+        m(ff)
         print(f'{kras}Вводить только цифры!{kon}')
         time.sleep(1)
         return z3z4_2(F1, F2, F3, gg)
@@ -514,6 +527,12 @@ def z4_22(F1, F2, F3, FT1, FT2):
         print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
         time.sleep(2)
         return z4_22(F1, F2, F3, FT1, FT2)
+    elif str(new1) in gg1:
+        os.system(ff)
+        print(f'{kras}Ошибка{kon}: {jel}имя уже существует{kon}!')
+        time.sleep(2)
+        return z4_22(F1, F2, F3, FT1, FT2)
+
     if len(new1) <= 12:
         try:
             new2 = int(input('Введите новый номер: '))
@@ -526,6 +545,12 @@ def z4_22(F1, F2, F3, FT1, FT2):
                 print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
                 time.sleep(2)
                 return z4_22(F1, F2, F3, FT1, FT2)
+            elif str(new2) in gg2:
+                os.system(ff)
+                print(f'{kras}Ошибка{kon}: {jel}номер уже существует{kon}!')
+                time.sleep(2)
+                return z4_22(F1, F2, F3, FT1, FT2)
+
         except ValueError:
             os.system(ff)
             print(f'{kras}Вводить только цифры!{kon}')
