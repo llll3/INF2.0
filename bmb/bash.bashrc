@@ -1,5 +1,3 @@
-
-#################################################
 alias lll='du -sh *'
 alias reznanu='cp nanu/names.rez nanu/names.txt ; cp nanu/numbers.rez nanu/numbers.txt'
 alias rzn='cp nanu/names.rez nanu/names.txt ; cp nanu/numbers.rez nanu/numbers.txt'
