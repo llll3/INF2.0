@@ -19,7 +19,7 @@ def start():
     F1 = f'{pwd}names.txt'
     F2 = f'{pwd}numbers.txt'
     F3 = f'{pwd}nanu.txt'
-    bmb = f'bmb/inf'
+    bmb = 'bmb/inf'
     print(f'''
 {kras}══════════════════════╗{kon}
 [&] Версия {fio}INF{kon} [2.0]  {kras}║{kon}
@@ -67,6 +67,7 @@ def update():
     time.sleep(2)
     return start()
 
+
 def install():
     os.system(ff)
     print(f'{zel}Установка{kon} {fio}INf{kon}...')
@@ -89,6 +90,7 @@ def zapusk(bmb):
     time.sleep(1)
     os.system(f'chmod 777 {bmb} ; {bmb}')
     return exit1()
+
 
 def spzapusk(F1, F2, F3, bmb):
     os.system(ff)
@@ -268,7 +270,8 @@ def z1_3(F1, F2, F3):
     TF3 = F3 + '.tmpp'  # создаём файл
     os.system("touch %s" % TF3)  # временный файл
     with open(F1) as f1, open(F2) as f2, open(TF3, 'w') as f4:
-        os.system("mv %s %s" % (F1, 'nnames.tmp')) # переименовываем временный файл
+        # переименовываем временный файл
+        os.system("mv %s %s" % (F1, 'nnames.tmp'))
         os.system("mv %s %s" % (F2, 'nnumbers.tmp'))
         os.system("mv %s %s" % ('nnames.tmp', F1))
         os.system("mv %s %s" % ('nnumbers.tmp', F2))
@@ -386,7 +389,8 @@ def z2_22(F1, F2, F3):
 
             except ValueError:
                 os.system(ff)
-                print(f'{kras}Ошибка{kon}: {jel}номер должен состоять {kras}только{kon} {jel}цифр{kon}!')
+                print(
+                    f'{kras}Ошибка{kon}: {jel}номер должен состоять {kras}только{kon} {jel}цифр{kon}!')
                 time.sleep(3)
                 return z2_22(F1, F2, F3)
             xxx = str(xxx)
@@ -401,12 +405,14 @@ def z2_22(F1, F2, F3):
 
             else:
                 os.system(ff)
-                print(f"""{kras}Ошибка{kon}:{jel} номер должен начинаться с 7(без +),
+                print(
+                    f"""{kras}Ошибка{kon}:{jel} номер должен начинаться с 7(без +),
                 а также должен состоять из 11 цифр{kon}!""")
                 time.sleep(2)
         else:
             os.system(ff)
-            print(f'{kras}Ошибка{kras}:{jel} имя не должно превышать 12 символов{kon}!')
+            print(
+                f'{kras}Ошибка{kras}:{jel} имя не должно превышать 12 символов{kon}!')
             time.sleep(2)
     z2(F1, F2, F3)
 
@@ -416,13 +422,12 @@ def z3z4_2(F1, F2, F3, gg):
     if gg == 1:
         z1(F1, F2, F3, abba=1)
     elif gg == 3 or gg == 4:
-       z1(F1, F2, F3, abba)
+        z1(F1, F2, F3, abba)
     try:
         global jek
         jek = int(input(f'{jir}Введите поряд.номер: {kon}'))
     except ValueError:
-        os.syste
-        m(ff)
+        os.system(ff)
         print(f'{kras}Вводить только цифры!{kon}')
         time.sleep(1)
         return z3z4_2(F1, F2, F3, gg)
@@ -459,20 +464,20 @@ def z4_3(F1, F2, F3, FT1, FT2, new1, new2):
     os.system("touch %s" % TF2)    # временный файл
 
     with open(F1) as f1, open(TF1, 'w') as f2, open(F2) as ff1, open(TF2, 'w') as ff2:
-            lines1 = f1.readlines()
-            lines2 = ff1.readlines()
-            for line1 in lines1:
-                line1 = line1.strip()
-                if line1 == FT1:
-                    f2.write(f'{new1}')  # меняем строку
-                else:
-                    f2.write(line1 + '\n')  # оставляем прежнюю
-            for line2 in lines2:
-                line2 = line2.strip()
-                if line2 == FT2:
-                    ff2.write(f'{new2}')  # меняем строку
-                else:
-                    ff2.write(line2 + '\n')  # оставляем прежнюю
+        lines1 = f1.readlines()
+        lines2 = ff1.readlines()
+        for line1 in lines1:
+            line1 = line1.strip()
+            if line1 == FT1:
+                f2.write(f'{new1}')  # меняем строку
+            else:
+                f2.write(line1 + '\n')  # оставляем прежнюю
+        for line2 in lines2:
+            line2 = line2.strip()
+            if line2 == FT2:
+                ff2.write(f'{new2}')  # меняем строку
+            else:
+                ff2.write(line2 + '\n')  # оставляем прежнюю
 
     path1 = os.path.join(os.path.abspath(os.path.dirname(__file__)), F1)
     path2 = os.path.join(os.path.abspath(os.path.dirname(__file__)), F2)
@@ -502,7 +507,7 @@ def z4(F1, F2, F3):
         return Z(F1, F2, F3)
     if kl == '1':
         os.system(ff)
-        z3z4_2(F1, F2, F3,  gg=4)
+        z3z4_2(F1, F2, F3, gg=4)
         FT1 = nomer1
         FT2 = nomer2
         return z4_22(F1, F2, F3, FT1, FT2)
@@ -562,7 +567,8 @@ def z4_22(F1, F2, F3, FT1, FT2):
             return z4_3(F1, F2, F3, FT1, FT2, new1, new2)
         else:
             os.system(ff)
-            print(f'''{kras}Ошибка{kon}:{jel} номер должен начинаться с 7(без +),
+            print(
+                f'''{kras}Ошибка{kon}:{jel} номер должен начинаться с 7(без +),
              а также должен состоять из 11 цифр{kon}!''')
             time.sleep(2)
     else:
