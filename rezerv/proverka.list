@@ -1,6 +1,0 @@
-xxx = input('number1: ')
-with open('/data/data/com.termux/files/home/INF2.0/nanu/names.txt') as f1:
-    gg = f1.readlines()
-    xxx += "\n"
-    if str(xxx) in gg:
-        print("nooooooo")

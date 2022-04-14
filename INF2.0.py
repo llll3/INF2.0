@@ -2,7 +2,7 @@ import time
 import sys
 import os
 numbers = str(list(range(1, 10)))
-list2 = str(list(range(1, 5)))
+list2 = str(list(range(1, 6)))
 ff = 'clear'
 zel = '\033[32m\033[1m'
 kras = '\033[31m\033[1m'
@@ -25,8 +25,8 @@ def start():
 [&] Версия {fio}INF{kon} [2.0]  {kras}║{kon}
 {kras}══════════════════════╣{kon}
 {zel}[0]{kon} Выход             {kras}║{kon}
-{zel}[1]{kon} Обновить          {kras}║{kon}
-{zel}[2]{kon} Установить        {kras}║{kon}
+{zel}[1]{kon} Удалить           {kras}║{kon}
+{zel}[2]{kon} Обновить          {kras}║{kon}
 {zel}[3]{kon} Ручной запуск     {kras}║{kon}
 {zel}[4]{kon} Запуск по списку  {kras}║{kon}
 {zel}[5]{kon} Редактор списка   {kras}║{kon}
@@ -34,9 +34,9 @@ def start():
     global command
     command = input(f'{jir}--> {kon}')
     if command == '1':
-        return update()
+        return delete()
     elif command == '2':
-        return install()
+        return update()
     elif command == '3':
         return zapusk(bmb)
     elif command == '4':
@@ -51,6 +51,9 @@ def start():
         os.system(ff)
         return start()
 
+#def delete():
+#    kill = input('{jel}Вы уверены что хотите {jel}удалить{kon} {fio}INF{kon}?')
+#    os.system('rm -rf $HOME/INF2.0')
 
 def update():
     os.system(ff)
@@ -68,20 +71,20 @@ def update():
     return start()
 
 
-def install():
-    os.system(ff)
-    print(f'{zel}Установка{kon} {fio}INf{kon}...')
-    time.sleep(2)
-    os.system('cd ~ ; pkg install git python3 nano')
-    os.system('cd ~ ;git clone https://github.com/llll3/INF2.0')
-    os.system('cp ~/INF2.0/bmb/bash.bashrc ../usr/etc/')
-    os.system('cd ~ ; source ../usr/etc/bash.bashrc')
-    os.system('yes | pkg update ; yes | pkg upgrade')
-    time.sleep(4)
-    os.system(ff)
-    print(f'{zel}Установка завершенна!{kon}')
-    time.sleep(1)
-    return start()
+#def install():
+#    os.system(ff)
+#    print(f'{zel}Установка{kon} {fio}INf{kon}...')
+#    time.sleep(2)
+#    os.system('cd ~ ; pkg install git python3 nano')
+#    os.system('cd ~ ;git clone https://github.com/llll3/INF2.0')
+#    os.system('cp ~/INF2.0/bmb/bash.bashrc ../usr/etc/')
+#    os.system('cd ~ ; source ../usr/etc/bash.bashrc')
+#    os.system('yes | pkg update ; yes | pkg upgrade')
+#    time.sleep(4)
+#    os.system(ff)
+#    print(f'{zel}Установка завершенна!{kon}')
+#    time.sleep(1)
+#    return start()
 
 
 def zapusk(bmb):
@@ -177,9 +180,10 @@ def Z(F1, F2, F3):
 {kras}══════════════════════╣{kjir}
 {zel}[0]{kon} Назад             {kras}║{kjir}
 {zel}[1]{kon} Список            {kras}║{kjir}
-{zel}[2]{kon} Добавить          {kras}║{kjir}
-{zel}[3]{kon} Удалить           {kras}║{kjir}
+{zel}[2]{kon} Удалить           {kras}║{kjir}
+{zel}[3]{kon} Добавить          {kras}║{kjir}
 {zel}[4]{kon} Изменить          {kras}║{kjir}
+{zel}[5]{kon} Резерв списка     {kras}║{kjir}
 {kras}══════════════════════╝{kon}''')
     global abba
     abba = input(f'{jir}--> {kon}')
@@ -188,11 +192,13 @@ def Z(F1, F2, F3):
     if abba == '1':
         return z1(F1, F2, F3, abba)
     elif abba == '2':
-        return z2(F1, F2, F3)
-    elif abba == '3':
         return z3(F1, F2, F3)
+    elif abba == '3':
+        return z2(F1, F2, F3)
     elif abba == '4':
         return z4(F1, F2, F3)
+    elif abba == '5':
+        return z5(F1, F2, F3)
     elif abba != list2:
         return Z(F1, F2, F3)
     else:
@@ -220,7 +226,7 @@ def z1(F1, F2, F3, abba):
 [&] Список:                   {kras}║{kjir}
 {kras}══════════════════════════════╣{kjir}
 {zel}[0]{kon + jir} Назад                     {kras}║{kjir}''')
-    if abba == '3':
+    if abba == '2':
         print(f'''
 {kras}══════════════════════════════╗{kjir}
 [&] Удалить:                  {kras}║{kjir}
@@ -576,6 +582,66 @@ def z4_22(F1, F2, F3, FT1, FT2):
         print(f'{kras}Ошибка{kon}:{jel} имя не должно превышать 12 символов{kon}!')
         time.sleep(2)
     return z4_22(F1, F2, F3, FT1, FT2)
+
+def z5(F1, F2, F3):
+    os.system(ff)
+    print(f'''
+{kras}════════════════════╗{kjir}
+[&] Резерв списка:  {kras}║{kjir}
+{kras}════════════════════╣{kjir}
+{zel}[0]{kon} Назад           {kras}║{kjir}
+{zel}[1]{kon} Создать         {kras}║{kjir}
+{zel}[2]{kon} Удалить         {kras}║{kjir}
+{zel}[3]{kon} Восстановить    {kras}║{kjir}
+{kras}════════════════════╝{kon}''')
+    hhh = input(f'{jir}--> {kon}')
+    if hhh == '0':
+        return Z(F1, F2, F3)
+    elif hhh == '1':
+        return z5_1(F1, F2, F3)
+    elif hhh == '2':
+        return z5_2(F1, F2, F3)
+    elif hhh == '3':
+        return z5_3(F1, F2, F3)
+    else:
+        return z5(F1, F2, F3)
+
+def z5_1(F1, F2, F3):
+    os.system(ff)
+    print(f'{jel}Резервирование...{kon}')
+    time.sleep(3)
+    os.system('rm -rf $HOME/rezerv')
+    os.system('cp $HOME/INF2.0/nanu $HOME/ -r')
+    os.system('mv $HOME/nanu $HOME/rezerv')
+    os.system(ff)
+    print(f'{zel}Резервная копия создана!{kon}')
+    time.sleep(3)
+    return z5(F1, F2, F3)
+
+def z5_2(F1, F2, F3):
+    os.system(ff)
+    print(f'{kras}Удаление...{kon}')
+    time.sleep(3)
+    os.system('rm -rf $HOME/rezerv')
+    os.system(ff)
+    print(f'{zel}Удалено!{kon}')
+    time.sleep(3)
+    return z5(F1, F2, F3)
+
+
+def z5_3(F1, F2, F3):
+    os.system(ff)
+    print(f'{zel}Восстановление...{kon}')
+    time.sleep(3)
+    os.system('cp $HOME/rezerv/ $HOME/INF2.0/ -r')
+    os.system('rm -rf $HOME/INF2.0/nanu')
+    os.system('mv $HOME/INF2.0/rezerv/ $HOME/INF2.0/nanu')
+    os.system(ff)
+    print(f'{zel}Восстановленно!{kon}')
+    time.sleep(3)
+    return z5(F1, F2, F3)
+
+
 
 
 start()
