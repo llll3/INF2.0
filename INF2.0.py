@@ -52,7 +52,9 @@ def start():
         return start()
 
 def delete():
-    kill = input(f'{jel}Вы уверены что хотите {jel}удалить{kon} {fio}INF{kon}({zel}Y{kon}/{kras}N{kon})?')
+    os.system(ff)
+    print(f'{jel}Примечание{kon}:{jel} резервая копия не удалится{kon}.')
+    kill = input(f'{jel}Вы уверены что хотите {jel}удалить{kon} {fio}INF{kon} ({zel}Y{kon}/{kras}N{kon})?')
     if kill == 'yes' or kill == 'y' or kill == 'Y' or kill == 'YES':
         os.system('rm -rf $HOME/INF2.0')
     elif kill == 'n' or kill == 'no' or kill == 'N' or  kill == 'NO':
