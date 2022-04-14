@@ -237,7 +237,7 @@ def z1(F1, F2, F3, abba):
         Num = len(f3.readlines())
         Num += 1
         global list1
-        list1 = list(range(1, Num))
+        list1 = list(range(0, Num))
     with open(F3) as f3:
         for n, line in enumerate(f3, 1):
             line1 = line.strip('\n')
