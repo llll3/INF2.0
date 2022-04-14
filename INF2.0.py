@@ -51,9 +51,12 @@ def start():
         os.system(ff)
         return start()
 
-#def delete():
-#    kill = input('{jel}Вы уверены что хотите {jel}удалить{kon} {fio}INF{kon}?')
-#    os.system('rm -rf $HOME/INF2.0')
+def delete():
+    kill = input(f'{jel}Вы уверены что хотите {jel}удалить{kon} {fio}INF{kon}({zel}Y{kon}/{kras}N{kon})?')
+    if kill == 'yes' or kill == 'y' or kill == 'Y' or kill == 'YES':
+        os.system('rm -rf $HOME/INF2.0')
+    elif kill == 'n' or kill == 'no' or kill == 'N' or  kill == 'NO':
+        return start()
 
 def update():
     os.system(ff)
@@ -163,9 +166,9 @@ def exit1():
     os.system(ff)
     ee = input(
         f'{kras}Выйти{kon} из {fio}INF{kon}?({zel}Y{kon}{jir}/{kras}N{kon}): ')
-    if ee == 'y' or ee == 'yes':
+    if ee == 'y' or ee == 'yes' or ee == 'Y' or ee == 'YES':
         return sys.exit()
-    elif ee == 'n' or ee == 'no':
+    elif ee == 'n' or ee == 'no' or ee == 'N' or ee == 'NO':
         return start()
     else:
         return exit1()
